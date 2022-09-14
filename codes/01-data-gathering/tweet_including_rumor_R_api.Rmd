@@ -1,0 +1,17 @@
+---
+title: "real_example_R_api"
+author: "Yifan Bian"
+date: "2022-09-14"
+output: html_document
+---
+
+```{r}
+library(rtweet) 
+api_key<-"OA4CTZkyLwMOg08PlFt0goCNC"
+api_secret<-"8k59TeAGeqlHXjf4wjOjrKLYXpEvutuRgDjLxVxm5R7uC5wB0q"
+access_token<-"1177285260242874368-QoMZGUj2TsbkXyPQ5o0pu5iFrFT72q"
+access_secret<-"6JWjo6Ro4RmqIBFLjOop9QW1FCgHZltRTz8EIsj9UiMOE"
+
+auth=rtweet_bot(api_key, api_secret, access_token, access_secret)
+rt <- search_tweets("rumor", n = 100, include_rts = FALSE,token=auth)
+```
