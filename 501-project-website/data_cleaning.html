@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Yifan Bian 501 Project Data Gathering</title>
+    <style>
+      .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
+      .blank{height:80px}
+      .position{display:flex; flex-direction: row;justify-content:center;}
+      .clean_process_huge_box{display:flex; flex-direction: row;justify-content:center;}
+      .clean_process_middle_box{display:flex; flex-direction:column;width:1240px;}
+      .clean_process_box{display:flex; flex-direction: row;justify-content:center;}
+      .clean_process{display:flex; flex-direction: row;justify-content:center;border-style:solid;border-width:1px;width: 400px;height:250px;background-color:#F2F2F2;border-color: #CCCCCC;border-top-color:#1C3352;border-top-width: 6px;}
+      .clean_process_title{padding-left: 20px;margin-bottom:0px;font-size: 25px;font-weight: bold;color: #003366;}
+      .clean_process_words{margin:0px;padding: 0px;font-size: 16px;padding-right: 20px;padding-left: 20px;text-align: left;}
+      .clean_process_links{font-size: 16px;text-align: right;padding-right:25px}
+      a:visited{color:black}
+      a{text-decoration: none;font-weight:bold;}
+      .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
+      .clean_footer{background-color: #F0F0F0;height:600px;display:flex;flex-direction: row;justify-content:center;}
+      .clean_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;font-size: 20px;margin-bottom: 20px;}
+      .clean_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
+    </style>
+
+</head>
+
+
+<body>
+    <div class="child-top">
+    
+      <div class = subtitle>
+        <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
+          Data Cleaning
+        </p>
+      </div>
+
+     <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
+        <h1 style="color: #d6d3c9;text-align:right;">
+          Anly-501 Project 
+        </h1>
+        <p style="color:grey;margin-top: -15px;text-align:right;">
+          A full data science life cycle.
+        </p>
+        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right" >
+          &copy; 2022 Yifan Bian 501 Project, powered by GU domain
+         </p>
+
+      </div>
+    </div>
+
+<div style="height:50px">
+</div>
+
+<!--the following section is the process   -->
+<section class="clean_process_huge_box">
+  <div class="clean_process_middle_box">
+  <div class="clean_process_head">
+    <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 0px;">
+      Process of Data Cleaning
+    </p>
+    <p style="font-size: 18px; font-weight:bold;margin-top: 0px;margin-bottom:50px;">
+      One of the most important step.
+    </p>
+  </div>
+
+  <div class="clean_process_box">
+    <!--the following div is the box of "raw data" -->
+    <div class="clean_process">
+      <!--the following div is used for setting the positions of texts -->
+      <div>
+        <p class = "clean_process_title">
+          RAW DATA
+        </p>
+      <!--the following div is used for plugging a space between texts -->
+        <div style="height:10px;">
+        </div>
+        <p class = "clean_process_words">
+          Raw data sets are collected by accessing APIs, dowloading from public open sources, etc. See more details on "Data Gathering" page.
+        </p>
+        <!--the following div is used for plugging a space between texts -->
+        <div style="height:70px;">
+        </div>
+        <div class="clean_process_links">
+        <a href="https://drive.google.com/drive/folders/1I30w7V7_pEKnD729eJ3kUsvH5GBWZmXW">Link to raw data sets</a>
+        </div>
+      </div>
+    </div>
+
+    <!--the following div is used to create space -->
+    <div style="width:20px;">
+    </div>
+
+
+    <!--the following div is the box of "cleaning code" -->
+    <div class="clean_process">
+      <!--the following div is used for setting the positions of texts -->
+      <div>
+        <p class = "clean_process_title">
+          DATA CLEANING
+        </p>
+      <!--the following div is used for plugging a space between texts -->
+        <div style="height:10px;">
+        </div>
+        <p class = "clean_process_words">
+          During the data cleaning process, I filled/droped the missing values, transformed the data of the same metrics from different tables to the same standards,tokenized and vectorized texts with "CounterVectorized", etc. More details at the end of this page.
+        </p>
+        <!--the following div is used for plugging a space between texts -->
+        <div style="height:20px;">
+        </div>
+        <div class="clean_process_links">
+        <a href="https://drive.google.com/drive/folders/16Im5Gu3X2bb0HlTH8Ki0GEz2IOAdlOfO">Link to data cleaning codes</a>
+        </div>
+      </div>
+    </div>
+
+    <!--the following div is used to create space -->
+    <div style="width:20px;">
+    </div>
+
+    <!--the following div is the box of "modified data" -->
+    <div class="clean_process">
+      <!--the following div is used for setting the positions of texts -->
+      <div>
+        <p class = "clean_process_title">
+          MODIFIED DATA
+        </p>
+      <!--the following div is used for plugging a space between texts -->
+        <div style="height:10px;">
+        </div>
+        <p class = "clean_process_words">
+          After cleaning, the data is ready for EDA(see more on "Exploring Data" page) and can be used to build a model.
+        </p>
+        <!--the following div is used for plugging a space between texts -->
+        <div style="height:70px;">
+        </div>
+        <div class="clean_process_links">
+        <a href="https://drive.google.com/drive/folders/1ezTLq7zpJM6YFgP5tms6-lu4oxKJk3r-">Link to modified data sets</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!--the following div is used to create space -->
+<div class="blank">
+</div>
+
+<div style="height:100px">
+</div>
+
+<footer class="clean_footer">
+    <div style="width:900px">
+        <div style="height:100px">
+        </div>
+        <p class="clean_footer_title">
+            What I have done with my codes?
+        </p>
+        <p class="clean_footer_text" style="margin-bottom: 5px;">
+            1.Raw data:"rumor.csv" --> Codes:"data_cleaning_python.ipynb" --> Modified data:"labeled_rumor_python.csv"
+        </p>
+        <p class="clean_footer_text" style="margin-bottom:20px;">
+          There are mutiple languages in the data set,so I firstly drop the unstructured data which is not written in English. Since the data set is collected by crawled during a certain period, so I drop the date of crawling and in case it will cause skew in the model trained.Columns like id, img_url,spam_score are useless, we need to drop them. The values of ord_in_thread are 0 for all rows, which is meaningless. We also drop it. I transformed the value of author as 0/1. 0 means anonymous, while 1 means the name of writer is recorded. All Na values were also be considered as anonymous. We cannot replace data with missing value of unstructed data. There is not a properly way to fill na in country.So we just drop certain rows. Finally we delete the rows where its type is "satire","junksci" and "state" to ensure it is a rumor. This will increase the quality of the data. Used countervectorized create the model and fit the model to the data. Changed the dtype to int32 to decrease the size of data to store it. 
+        </p>
+        <p class="clean_footer_text" style="margin-bottom: 5px;">
+          2.Raw data:"truth.csv" --> Codes:"data_cleaning_r" --> Modified data:"labeled_truth_R.csv"
+        </p>
+        <p class="clean_footer_text" style="margin-bottom: 5px;">
+          Firstly,I transforms cities to country. There are urls at the end of every tweet, so I write a normal expression to drop them. Finally, I added a label.
+        
+        </p>   
+    </div> 
+</footer>
+
+</body>
+</html>

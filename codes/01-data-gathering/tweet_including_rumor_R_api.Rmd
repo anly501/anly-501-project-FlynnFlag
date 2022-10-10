@@ -14,4 +14,5 @@ access_secret<-"6JWjo6Ro4RmqIBFLjOop9QW1FCgHZltRTz8EIsj9UiMOE"
 
 auth=rtweet_bot(api_key, api_secret, access_token, access_secret)
 rt <- search_tweets("rumor", n = 100, include_rts = FALSE,token=auth)
+write.csv(rt,"mydata.csv")
 ```

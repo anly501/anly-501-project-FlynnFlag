@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Yifan Bian 501 Project Data Gathering</title>
+    <style>
+      .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
+      .blank{height:80px}
+      .position{display:flex; flex-direction: row;justify-content:center;}
+      .explore_box{display:flex; flex-direction: row;justify-content:center;border-style:solid;border-width:1px;width: 1250px;border-color: grey;}
+      .explore_caption{background-color: #F6F6FA;}
+      .explore_cap_title{padding-left: 20px;margin-bottom:0px;font-size: 40px;font-weight: bold;color: #003366;}
+      .explore_words{margin:0px;padding: 0px;font-size: 20px;padding-right: 30px;padding-left: 20px;text-align: left;}
+      .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
+      .explore_footer{background-color: #F0F0F0;height:300px;display:flex;flex-direction: row;justify-content:center;}
+      .explore_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;}
+      .explore_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
+      a:visited{color:black}
+      a{text-decoration: none;font-weight:bold;font-size: 20px;color: #003366;}
+    </style>
+
+</head>
+
+
+<body>
+    <div class="child-top">
+    
+      <div class = subtitle>
+        <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
+          Exploring Data
+        </p>
+      </div>
+
+     <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
+        <h1 style="color: #d6d3c9;text-align:right;">
+          Anly-501 Project 
+        </h1>
+        <p style="color:grey;margin-top: -15px;text-align:right;">
+          A full data science life cycle.
+        </p>
+        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right" >
+          &copy; 2022 Yifan Bian 501 Project, powered by GU domain
+         </p>
+
+      </div>
+    </div>
+    <div class="blank">
+
+    </div>
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/rumors_domain_rank.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            Where rumors spreads?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            By visulizing the distribution of 11179 rumors, we can find that rumors exist everywhere. No matter how popular the domain is, there are rumors on it. Additionally, rumors are more likely to appear on relatively popular domains, which is a bit counterintuitive.
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  labeled_rumor_python.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+
+<div class="blank">
+</div>
+
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/rumors_real-name_vs_anonymous.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            What about the author of rumors?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            Signed rumors are much more than anonymous rumors. Among 11179 rumors, more than 9000 rumors can be traced. We are able to find who created these texts rapidly and easily. However, there are still more than 2000 rumors are anonymous. 
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  labeled_rumor_python.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+
+<div class="blank">
+</div>
+
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/rumors_wordclouds.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            What's the content of rumors?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            Political topics are the most common topic of rumors. Celebrities and countries are often used when rumormongers are writing rumors. 
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  labeled_rumor_python.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+
+<div class="blank">
+</div>
+
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/rumors_shares_likes.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            What's people's reaction to rumors?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            The visualization of the numbers of likes and shares of rumors are rather wierd, but it is what happened in the real world. Although there are so many rumors, all of these rumors are neither widely shared or liked. The maxiumns of both metrics are only 2.
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  labeled_rumor_python.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/truth_shares_likes.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            As a contrast, what's people's reaction to real events?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            For real events, the distribution of numbers of likes and shares are much more than the ones of rumors. They are also more various. Besides, the numbers of likes and the numbers of shares have a positive relationship in general. 
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  labeled_truth_R.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+
+<div class="blank">
+</div>
+
+<footer class="explore_footer">
+    <div>
+        <div style="height:100px">
+        </div>
+        <p class="explore_footer_title">
+            Method Used:
+        </p>
+        <p class="explore_footer_text">
+            The visualization is created by using python packages "Seaborn" and "Wordcloud".
+        </p>
+        <p class="explore_footer_title">
+            Process:
+        </p>
+        <p class="explore_footer_text">
+            The EDA was conducted after the raw data sets have been cleaned and the feature engineering has been finished.
+        </p>
+        <p class="explore_footer_title">
+            Link of Codes:
+        </p>
+        <a href="https://drive.google.com/drive/folders/1GISy91da8Q2dMnbqZztFYD3Ly9RcWYgJ">
+            Click to visit.
+        </a>
+    </div> 
+</footer>
+
+</body>
+</html>

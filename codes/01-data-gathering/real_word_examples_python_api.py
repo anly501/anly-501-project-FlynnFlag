@@ -1,11 +1,6 @@
 import json
 import tweepy
-import openpyxl
-
-#generate excel
-wb = openpyxl.Workbook()
-sheet = wb.active
-sheet.title = 'correct news'
+import pandas as pd
 
 # load key
 consumer_key = "OA4CTZkyLwMOg08PlFt0goCNC"
@@ -18,12 +13,32 @@ auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
 
 api = tweepy.API(auth)
+#write a function to collect some news and related statistical number
+def truth(userid):
+    tweets=api.user_timeline(user_id=userid,count=50,tweet_mode='extended') 
+    text=[]
+    location=[]
+    friends_count=[]
+    followers_count=[]
+    screen_name=[]
+    retweet_count=[]
+    favorite_count=[]
+#store what we need in a list 
+    for tweet in tweets:
+        text.append(tweet._json['full_text'])
+        location.append(tweet._json["user"]["location"])
+        friends_count.append(tweet._json["user"]["friends_count"])
+        followers_count.append(tweet._json["user"]["followers_count"])
+        screen_name.append(tweet._json["user"]["screen_name"])
+        retweet_count.append(tweet._json['retweet_count'])
+        favorite_count.append(tweet._json['favorite_count'])
+#transform the list into dictionary
+    dic={"text":text,"location":location,"friends_count":friends_count,"followers_count":followers_count,"screen_name":screen_name,"retweet_count":retweet_count,"favorite_count":favorite_count}
+    df=pd.DataFrame(dic)
+    return(df)
+df=truth(1367531)
 
-# download information
-tweets=api.user_timeline(user_id=1367531,count=50,tweet_mode='extended')
-for tweet in tweets:
-    tweet=tweet._json['full_text']
-    sheet.append(['Fox News',tweet])
+for i in[5402612,15012486,1120655269]:
+    df=pd.concat([df, truth(i)])
 
-wb.save(r"D:\501\correct information.xlsx")
-
+df.to_csv("../../data/00-raw-data/truth.csv")
