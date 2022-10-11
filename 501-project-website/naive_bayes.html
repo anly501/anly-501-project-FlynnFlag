@@ -8,19 +8,20 @@
       .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
       .blank{height:80px}
       .position{display:flex; flex-direction: row;justify-content:center;}
-      .clean_process_huge_box{display:flex; flex-direction: row;justify-content:center;}
-      .clean_process_middle_box{display:flex; flex-direction:column;width:1240px;}
-      .clean_process_box{display:flex; flex-direction: row;justify-content:center;}
-      .clean_process{display:flex; flex-direction: row;justify-content:center;border-style:solid;border-width:1px;width: 400px;height:250px;background-color:#F2F2F2;border-color: #CCCCCC;border-top-color:#1C3352;border-top-width: 6px;}
-      .clean_process_title{padding-left: 20px;margin-bottom:0px;font-size: 25px;font-weight: bold;color: #003366;}
-      .clean_process_words{margin:0px;padding: 0px;font-size: 16px;padding-right: 20px;padding-left: 20px;text-align: left;}
-      .clean_process_links{font-size: 16px;text-align: right;padding-right:25px}
-      a:visited{color:black}
-      a{text-decoration: none;font-weight:bold;}
+      .bayes_box1{display:flex; flex-direction: row;justify-content:center;}
+      .bayes_caption1{padding: 100px;padding-left:50px;padding-right:150px;font-size: 25px}
+      .bayes_pic1{width: 580px;padding: 50px;padding-left:80px}
+      .bayes_box2{background-color: #F8F7F5;display:flex; flex-direction: row;justify-content:center;padding-top: 20px;padding-bottom: 20px;}
+      .bayes_caption2{padding: 100px;padding-right:50px;padding-left:150px;font-size: 25px}
+      .bayes_pic2{width: 580px;padding: 50px;padding-right:80px;}
+      .bayes_prepare_title_box{display:flex; flex-direction: row;justify-content:center;height:380px}
+      .bayes_prepare_box{background-color:#313030;height:250px;display:flex; flex-direction:row;justify-content:space-around;}
+      .bayes_routine_box{display:flex; flex-direction: column;align-items:center;margin-top: 0px;}
+      .bayes_prepare_links_li{list-style:none;margin-bottom: 5px;}
+      a:visited{color:white}
+      a{text-decoration: none;color:white;}
       .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
-      .clean_footer{background-color: #F0F0F0;height:600px;display:flex;flex-direction: row;justify-content:center;}
-      .clean_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;font-size: 20px;margin-bottom: 20px;}
-      .clean_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
+
     </style>
 
 </head>
@@ -31,7 +32,7 @@
     
       <div class = subtitle>
         <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
-          Data Cleaning
+          Naive Bayes
         </p>
       </div>
 
@@ -50,14 +51,184 @@
     </div>
 
     
-<!--the following div is used to create space -->
-<div class="blank">
+
+
+
+<!--the following div is the first part(model built by python) -->
+<div class="bayes_title_box">
+  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
+    Modeled by python
+  </p>
+  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px">
+    Classification Model Based on tweet text
+  </p>
+</div>
+<!--the following div is the first box -->
+<div class="bayes_box1">
+<img src="images/learning_curve_text_naive_bayes.png" class="bayes_pic1">
+</img>
+<p class = bayes_caption1>
+  According to the learning curve, the performance on both training data and cross validation data continuously increase. As the number of examples increase, the score of training and cross validation data reaches a high position, meaning that the model is neither overfitting, nor underfitting.
+</p>
+</div>
+<!--the following div is the second box -->
+<div class="bayes_box2">
+
+    <p class = bayes_caption2>
+      According to the precision recall curve, it is easier for model to detect truth, while it is relatively hard to tell rumor from truth. This means the model is not applicable in practical use.
+    </p>
+  <img src="images/PR_curve_naive_bayes.png" class="bayes_pic2">
+  </img>
 </div>
 
-<img src="images/confusion_matirx_text_naive_bayes.png" style="width: 580px;padding-bottom: 10px;">
-</img>
+<div style="height:50px">
+</div>
+<!--the following div is the third box -->
+<div class="bayes_box1">
+  <img src="images/confusion_matirx_text_naive_bayes.png" class="bayes_pic1">
+  </img>
+  <p class = bayes_caption1>
+    According to the confusion matrix, the precentage of true positive is much higher than other three statistics, this may cause by the unbalanced data. The negative sample is too small. We may need more samples.
+ </p>
+</div>
+
 <div style="height:100px">
 </div>
+
+<!--the following div is the first part(model built by R) -->
+<div class="bayes_title_box">
+  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
+    Modeled by R
+  </p>
+  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px">
+    Classification Model Based on tweet performance and account character.
+  </p>
+</div>
+<!--the following div is the first box -->
+<div class="bayes_box1">
+  <img src="images/learning_curve_text_naive_bayes.png" class="bayes_pic1">
+  </img>
+  <p class = bayes_caption1>
+    According to the learning curve, the performance on both training data and cross validation data continuously increase. As the number of examples increase, the score of training and cross validation data reaches a high position, meaning that the model is neither overfitting, nor underfitting.
+  </p>
+  </div>
+  <!--the following div is the second box -->
+  <div class="bayes_box2">
+  
+      <p class = bayes_caption2>
+        According to the precision recall curve, it is easier for model to detect truth, while it is relatively hard to tell rumor from truth. This means the model is not applicable in practical use.
+      </p>
+    <img src="images/PR_curve_naive_bayes.png" class="bayes_pic2">
+    </img>
+  </div>
+  
+  <div style="height:50px">
+  </div>
+  <!--the following div is the third box -->
+  <div class="bayes_box1">
+    <img src="images/confusion_matirx_Tweet_Account_naive_bayes.png" class="bayes_pic1">
+    </img>
+    <p class = bayes_caption1>
+      According to the confusion matrix, the precentage of true positive is much higher than other three statistics, this may cause by the unbalanced data. The negative sample is too small. We may need more samples.
+   </p>
+  </div>
+  
+  <div style="height:50px">
+  </div>
+
+
+
+<hr style="width: 1200px;">
+
+<footer>
+  <div style="height:100px">
+  </div>
+  <div class="bayes_prepare_title_box">
+    <div>
+    </div>
+    <div style="width:1450px;background-color:#1C3352;">
+      <p style="color:white;font-size:40px;text-align:center;padding-top: 0px;margin-bottom: 10px;">
+        Process of Preparing Data
+      </p>
+      <div class="bayes_routine_box">
+        <p style="color:white;font-size:18px;text-align:left;padding-left:10px;padding-right:10px;width: 700px;margin-top: 0px;">
+          The data used is about the texts of tweets and the account features. Raw data sets were cleaned, merged and labeled by different files.The following picture shows how data sets and codes were used and organized before building a model.
+        </p>
+        <div style="height:10px;">
+        </div>
+        <img src="images/data_prepare_routine.jpg" style="width:1200px;margin-bottom: 0px;"> 
+        </img>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class = bayes_prepare_box >
+
+<!--the following div is the first list --> 
+    <div class="bayes_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2 style="color:white">
+        Data
+      </h2>
+    <ul style="border-left:1px solid white;">
+      <li class="bayes_prepare_links_li">
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">Raw Data</a>
+      </li>
+      <li class="bayes_prepare_links_li">
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/01-modified-data">Modified Data</a>
+      </li>
+    </ul>
+    </div>
+<!--the following div is the second list -->    
+    <div class="bayes_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2 style="color:white">
+        Code
+      </h2>
+      <ul style="border-left:1px solid white;">
+        <li class="bayes_prepare_links_li">
+          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/01-data-gathering">Gathering Data</a>
+        </li>
+        <li class="bayes_prepare_links_li">
+          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/02-data-cleaning">Cleaning Data</a>
+        </li>
+        <li class="bayes_prepare_links_li">
+          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/04-naive-bayes">Naive Bayes Modeling</a>
+        </li>
+      </ul>
+    </div>
+<!--the following div is the third list -->    
+    <div class="bayes_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2 style="color:white">
+        Describe
+      </h2>
+      <ul style="border-left:1px solid white;">
+        <li class="bayes_prepare_links_li">
+          <a href="./data_gathering.html">Data Gathering Page</a>
+        </li>
+        <li class="bayes_prepare_links_li">
+          <a href="./data_cleaning.html">Data Cleaning Page</a>
+        </li>
+        <li class="bayes_prepare_links_li">
+          <a href="./naive_bayes.html">Naive Bayes Page</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="background-color:#313030">
+    <div style="height:50px">
+    </div>
+    <hr style="width: 1400px;color:white">
+    <div style="height:50px">
+    </div>
+  </div>
+</footer>
+
 
 </body>
 </html>

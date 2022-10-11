@@ -11,4 +11,4 @@ df$location[which(df$location == "Washington, DC")] = 'USA'
 df$location[which(df$location == "'New York, NY'")] = 'USA'
 #There are urls at the end of every tweet, we need to drop them
 df$text=gsub(pattern="(f|ht)tp(s?)://\\S+","",df$text,perl=T)
-write_csv(df,"../../data/01-modified-data/labeled_truth_R.csv")
+write_csv(df,"C:/Windows/System32/anly-501-project-FlynnFlag/data/01-modified-data/labeled_truth_R.csv")
