@@ -18,6 +18,7 @@
       .bayes_prepare_box{background-color:#313030;height:250px;display:flex; flex-direction:row;justify-content:space-around;}
       .bayes_routine_box{display:flex; flex-direction: column;align-items:center;margin-top: 0px;}
       .bayes_prepare_links_li{list-style:none;margin-bottom: 5px;}
+      .bayes_conclusion_box{display:flex; flex-direction: row;justify-content:center;}
       a:visited{color:white}
       a{text-decoration: none;color:white;}
       .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
@@ -59,8 +60,11 @@
   <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
     Modeled by python
   </p>
-  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px">
-    Classification Model Based on tweet text
+  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;">
+    Rumor Detection Based on Tweet Text
+  </p>
+  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;">
+    The model is built with tweet texts. A naive bayes model was built after the texts were vectorized to tell rumors from truth.
   </p>
 </div>
 <!--the following div is the first box -->
@@ -100,43 +104,56 @@
   <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
     Modeled by R
   </p>
-  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px">
-    Classification Model Based on tweet performance and account character.
+  <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin:0px">
+    Rumor Detection Based on Tweet Performance and Account Character
+  </p>
+  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;">
+    The model is built with tweets performance and account features. A naive bayes model was built by these continuous variables.
   </p>
 </div>
 <!--the following div is the first box -->
 <div class="bayes_box1">
-  <img src="images/learning_curve_text_naive_bayes.png" class="bayes_pic1">
+  <img src="images/correlation_between_features.png" class="bayes_pic1">
   </img>
   <p class = bayes_caption1>
-    According to the learning curve, the performance on both training data and cross validation data continuously increase. As the number of examples increase, the score of training and cross validation data reaches a high position, meaning that the model is neither overfitting, nor underfitting.
+    According to the correlation graph, friends count and favourite count is related to each other, which is consisitent with intuition.
   </p>
   </div>
   <!--the following div is the second box -->
   <div class="bayes_box2">
   
       <p class = bayes_caption2>
-        According to the precision recall curve, it is easier for model to detect truth, while it is relatively hard to tell rumor from truth. This means the model is not applicable in practical use.
+        According to the confusion matrix, this model performs better than the previous one. The number of true positive is high and the number of false negative is 0,meaning it has low error rate.
       </p>
-    <img src="images/PR_curve_naive_bayes.png" class="bayes_pic2">
+    <img src="images/confusion_matirx_Tweet_Account_naive_bayes.png" class="bayes_pic2">
     </img>
   </div>
   
   <div style="height:50px">
   </div>
-  <!--the following div is the third box -->
-  <div class="bayes_box1">
-    <img src="images/confusion_matirx_Tweet_Account_naive_bayes.png" class="bayes_pic1">
-    </img>
-    <p class = bayes_caption1>
-      According to the confusion matrix, the precentage of true positive is much higher than other three statistics, this may cause by the unbalanced data. The negative sample is too small. We may need more samples.
-   </p>
-  </div>
   
   <div style="height:50px">
   </div>
 
-
+<hr style="width: 1200px;">
+<div style="height: 25px;">
+</div>
+<div class="bayes_conclusion_box">
+  <div>
+  </div>
+  <div style="width:1100px">
+    <h1 style="text-align: center;">
+      Conclusion
+    </h1>
+    <p style="font-size: 25px;margin-bottom: 0px;margin-top: 0px;">
+      The model based on account features and tweet performance is better than the model based on tweet text, this means that to detect whether a sentence is a rumor, it is hard to judge according to its content. However, it is more effective to make a decision based on the account.
+    </p>
+  </div>
+  <div>
+  </div>
+</div>
+<div style="height: 70px;">
+</div>
 
 <hr style="width: 1200px;">
 
