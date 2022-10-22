@@ -1,0 +1,47 @@
+project:
+  type: website
+
+website:
+
+  navbar:
+    search: false
+    left:
+      - href: https://gpa4.georgetown.domains/501-project-website/main_page.html
+        text: Home
+      - href: https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes
+        text: Code
+      - href: https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data
+        text: Data
+      - href: https://gpa4.georgetown.domains/501-project-website/intro.html
+        text: Intro
+      - href: https://gpa4.georgetown.domains/501-project-website/data_gathering.html
+        text: Data Gathering
+      - href: https://gpa4.georgetown.domains/501-project-website/data_cleaning.html
+        text: Data Cleaning
+      - href: https://gpa4.georgetown.domains/501-project-website/exploring_data.html
+        text: Exploring Data
+      - href: https://gpa4.georgetown.domains/501-project-website/naive_bayes.html
+        text: Naive Bayes
+      - text: Decision Tree
+        file: decision_tree.qmd
+      - text: SVM
+        file: svm.qmd
+    background: "#FCFCFC"
+    foreground: "#000000"
+  page-footer: 
+    left: "© 2022 Yifan Bian 501 Project, powered by GU domain" 
+    background: "#313030"
+  
+
+format:
+  html:
+    include-in-header: svm_header.html
+    code-fold: True
+    theme: 
+      - cosmo
+      - custom.scss
+    css: styles.css
+    toc: true
+
+
+
