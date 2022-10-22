@@ -299,7 +299,7 @@ In this tab, a classification method called <strong><em>Decision Tree</em></stro
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Class"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Counts"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>Text(0, 0.5, 'Counts')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -327,8 +327,8 @@ In this tab, a classification method called <strong><em>Decision Tree</em></stro
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>-----RANDOM CLASSIFIER-----
-accuracy 0.4757142857142857
-percision, recall, fscore, (array([0.47619048, 0.47521866]), array([0.48571429, 0.46571429]), array([0.48090523, 0.47041847]), array([350, 350], dtype=int64))</code></pre>
+accuracy 0.4685714285714286
+percision, recall, fscore, (array([0.46802326, 0.46910112]), array([0.46      , 0.47714286]), array([0.46397695, 0.47308782]), array([350, 350], dtype=int64))</code></pre>
 </div>
 </div>
 <p><br><br> What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.</p>
@@ -487,11 +487,11 @@ percision, recall, fscore, (array([0.47619048, 0.47521866]), array([0.48571429, 
 <span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>plot_tree(model,x_test,y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>ACCURACY: 0.6214285714285714
-NEGATIVE RECALL (Y=0): 0.4927536231884058
-NEGATIVE PRECISION (Y=0): 0.6538461538461539
-POSITIVE RECALL (Y=1): 0.7464788732394366
-POSITIVE PRECISION (Y=1): 0.6022727272727273
+<pre><code>ACCURACY: 0.6571428571428571
+NEGATIVE RECALL (Y=0): 0.6027397260273972
+NEGATIVE PRECISION (Y=0): 0.6984126984126984
+POSITIVE RECALL (Y=1): 0.7164179104477612
+POSITIVE PRECISION (Y=1): 0.6233766233766234
 </code></pre>
 </div>
 <div class="cell-output cell-output-display">

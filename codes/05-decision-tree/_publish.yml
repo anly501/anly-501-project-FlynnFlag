@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 41e4bb1c-ba36-423c-88de-e8301f0725ec
+      url: 'https://quartopub.com/sites/flynnflag/decision_tree'
