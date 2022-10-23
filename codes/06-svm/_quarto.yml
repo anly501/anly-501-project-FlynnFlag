@@ -23,7 +23,7 @@ website:
       - href: https://gpa4.georgetown.domains/501-project-website/naive_bayes.html
         text: Naive Bayes
       - text: Decision Tree
-        file: decision_tree.qmd
+        file: https://flynnflag.quarto.pub/decision_tree/decision_tree.html
       - text: SVM
         file: svm.qmd
     background: "#FCFCFC"

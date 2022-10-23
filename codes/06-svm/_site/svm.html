@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="https://gpa4.georgetown.domains/501-project-website/naive_bayes.html">Naive Bayes</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./decision_tree.qmd">Decision Tree</a>
+    <a class="nav-link" href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./svm.html" aria-current="page">SVM</a>
@@ -258,22 +258,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
-In this tab, a classification method called <strong><em>Decision Tree</em></strong> is used. This method continuouslly asks “whether or not questions” to the input so that it can gradually divides it into different parts. <br><br> <img src="tree.png" class="img-fluid">
+In this tab, a classification method called <strong><em>SVM(Supported Vector Machine)</em></strong> is used. This method “draw a bound” at the middle of the distance between the closest two samples. <br><br> <img src="svm.jpeg" class="img-fluid">
 <center>
-<em>(Example of the process of decision tree)</em> <a href="https://www.ibm.com/topics/decision-trees"><code>reference</code></a>
+<em>(Example how svm functions)</em>
 </center>
-<p><br><br> But how to decide what to ask? The trick here is to use mathematical formulas to quantify one of the following metrics to find the question.</p>
-<blockquote class="blockquote">
-<ul>
-<li>The extent to which we gain new information from new answers (by calculating entropy)</li>
-<li>The probability which we incorrectly classify the sample (by calculating gini index)</li>
-</ul>
-</blockquote>
-<p>By using this method, we can easily find how important an attribute is, and understand what makes our research target so different.</p>
-<p>Now we are going to apply this method to our data to achieve one of our goals:</p>
+<p><br><br></p>
+<p>Advantages of this method is: SVM performs reasonably well when the difference between classes is huge.</p>
+<p>With SVM, we are going to solve the following application</p>
 <hr>
 <center>
-<strong>Distinguish users who are more likely to be influenced by rumor with other users.</strong>
+<strong>Distinguish rumors from truth</strong>
 </center>
 <hr>
 <p><br><br></p>
@@ -330,8 +324,8 @@ In this tab, a classification method called <strong><em>Decision Tree</em></stro
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>-----RANDOM CLASSIFIER-----
-accuracy 0.47714285714285715
-percision, recall, fscore, (array([0.47660819, 0.47765363]), array([0.46571429, 0.48857143]), array([0.47109827, 0.48305085]), array([350, 350], dtype=int64))</code></pre>
+accuracy 0.49857142857142855
+percision, recall, fscore, (array([0.49864499, 0.49848943]), array([0.52571429, 0.47142857]), array([0.51182197, 0.4845815 ]), array([350, 350], dtype=int64))</code></pre>
 </div>
 </div>
 <p><br><br> What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.</p>
@@ -490,11 +484,11 @@ percision, recall, fscore, (array([0.47660819, 0.47765363]), array([0.46571429, 
 <span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>plot_tree(model,x_test,y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>ACCURACY: 0.6214285714285714
-NEGATIVE RECALL (Y=0): 0.4473684210526316
-NEGATIVE PRECISION (Y=0): 0.7555555555555555
-POSITIVE RECALL (Y=1): 0.828125
-POSITIVE PRECISION (Y=1): 0.5578947368421052
+<pre><code>ACCURACY: 0.5928571428571429
+NEGATIVE RECALL (Y=0): 0.39344262295081966
+NEGATIVE PRECISION (Y=0): 0.5454545454545454
+POSITIVE RECALL (Y=1): 0.7468354430379747
+POSITIVE PRECISION (Y=1): 0.6145833333333334
 </code></pre>
 </div>
 <div class="cell-output cell-output-display">

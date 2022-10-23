@@ -6,25 +6,19 @@ jupyter: python3
 
 ## Method 
 
-In this tab, a classification method called ***Decision Tree*** is used. This method continuouslly asks "whether or not questions" to the input so that it can gradually divides it into different parts.
+In this tab, a classification method called ***SVM(Supported Vector Machine)*** is used. This method "draw a bound" at the middle of the distance between the closest two samples. 
 <br></br>
-![](tree.png)
-<center>*(Example of the process of decision tree)*  [`reference`](https://www.ibm.com/topics/decision-trees)</center>
+![](svm.jpeg)
+<center>*(Example how svm functions)*</center>
 <br></br>
-But how to decide what to ask? The trick here is to use mathematical formulas to quantify one of the following metrics to find the question.
 
->- The extent to which we gain new information from new answers (by calculating entropy) 
->- The probability which we incorrectly classify the sample (by calculating gini index)
+Advantages of this method is: SVM performs reasonably well when the difference between classes is huge.
 
-
-By using this method, we can easily find how important an attribute is, and understand what makes our research target so different.
-
-Now we are going to apply this method to our data to achieve one of our goals:  
-
+With SVM, we are going to solve the following application
 
 ---
 
-<center>**Distinguish users who are more likely to be influenced by rumor with other users.**</center>
+<center>**Distinguish rumors from truth**</center>
 
 --- 
 
@@ -44,7 +38,10 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import confusion_matrix
-df=pd.read_csv("../../data/01-modified-data/cleaned_followers.csv")
+df=pd.read_csv("../../data/01-modified-data/supervised_data")
+df
+```
+```
 sns.set_theme()
 plt.hist(df.label.astype("string"))
 plt.title("The distribution of the class",fontsize=18)
