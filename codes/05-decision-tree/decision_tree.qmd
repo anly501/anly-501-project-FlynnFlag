@@ -50,6 +50,7 @@ plt.hist(df.label.astype("string"))
 plt.title("The distribution of the class",fontsize=18)
 plt.xlabel("Class",fontsize=16)
 plt.ylabel("Counts",fontsize=16)
+df
 ```
 
 The count of two classes are the same, 350 for each. This is dsigned when gathering the data("details of followers"). With this kind of data, we can avoid problems brought from imbalanced data sets.

@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 1f5ab0b9-a8bf-49c4-b2df-a8bb303c373d
+      url: 'https://quartopub.com/sites/flynnflag/06-svm'

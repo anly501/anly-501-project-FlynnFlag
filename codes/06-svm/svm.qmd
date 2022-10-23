@@ -31,30 +31,33 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn import tree
+from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import confusion_matrix
-df=pd.read_csv("../../data/01-modified-data/supervised_data")
-df
-```
-```
+df=pd.read_csv("../../data/01-modified-data/supervised_data.csv")
+y=df["label"]
 sns.set_theme()
-plt.hist(df.label.astype("string"))
+plt.hist(y)
 plt.title("The distribution of the class",fontsize=18)
 plt.xlabel("Class",fontsize=16)
 plt.ylabel("Counts",fontsize=16)
 ```
 
-The count of two classes are the same, 350 for each. This is dsigned when gathering the data("details of followers"). With this kind of data, we can avoid problems brought from imbalanced data sets.
-
+This is an imbalanced data, the number of truth is bigger than the number of rumor. This is induced by two different ways of collecting data. Rumor samples are rather hard to get. 
+In this model, we will try to use sample a equal number of truth from the rows where label is "truth".
 <br></br>
+
 
 ## Baseline Model for Comparsion
 ```{python}
+y=y.str.replace("rumor","1")
+y=y.str.replace("truth","0")
+y=y.astype("int")
 def random_classifier(y_data):
     ypred=[]
     max_label=np.max(y_data); #print(max_label)
@@ -64,81 +67,37 @@ def random_classifier(y_data):
     print("accuracy",accuracy_score(y_data, ypred))
     print("percision, recall, fscore,",precision_recall_fscore_support(y_data,ypred))
 
-random_classifier(df.label)
+random_classifier(y)
 ```
 <br></br>
 What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.
 
 ## Feature Selection
 ```{python}
-# id reflect the time account exits,we normalized it 
-df["user_id"]=(df.user_id-df.user_id.mean())/df.user_id.std() 
-#drop the feature we won't consider about
-df.drop(columns=["screen_name"],axis=1,inplace=True)
-#
-X=df.drop(columns=["label"],axis=1)
-y=df["label"]
+#sample a subset of negative samples
+a=df[df["label"]=="truth"].sample(100)
+b=df[df['label']=="rumor"]
+df=pd.concat([a,b])
+df.reset_index(drop=True, inplace=True)
+y=df['label']
+X=df["text"]
+y=y.str.replace("rumor","1")
+y=y.str.replace("truth","0")
+y=y.astype("int")
+#transform texts
+vectorizer = CountVectorizer()
+matrix = vectorizer.fit_transform(X)
+X = pd.DataFrame(matrix.toarray(),columns=vectorizer.get_feature_names_out())
+#split the data
 x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
 ```
 
-| Feature          | Meaning                                                             | 
-|------------------|:--------------------------------------------------------------------|
-| user_id          | the id of users                                                     | 
-| followers_count  | the number of followers this account currently has                  | 
-| friends_count    | the number of users this account is following                       | 
-| listed_count     | the number of public lists that this user is a member of            | 
-| favourites_count | the number of Tweets this user has liked in the account’s lifetime  | 
-| tweet_num        | the number of Tweets (including retweets) issued by the user        | 
-| protected        | whether user has chosen to protect their Tweets                     | 
-| verified         | whether user has a verified account                                 | 
-<center>*(The names and meanings of features)*</center>
+This model try to use texts to classify, so our features are texts transformed by "CountVectorizer"
 
-
-8 features was selected to train the model. These features are all attributes that are allowed to get and reflect the character of accounts. With these attributes, we have the biggest possibility to find the differences. Note that "user_id" is also selected because it reflect how long an account was created. The bigger an user id is, the newer the account is.
 <br></br>
 
 ## Model tuning
 ```{python}
-# try different numbers of layers to find the best one
-test_results=[]
-train_results=[]
-
-for num_layer in range(1,20):
-    model = tree.DecisionTreeClassifier(max_depth=num_layer)
-    model = model.fit(x_train,y_train)
-
-    yp_train=model.predict(x_train)
-    yp_test=model.predict(x_test)
-
-    # print(y_pred.shape)
-    test_results.append([num_layer,accuracy_score(y_test, yp_test),recall_score(y_test, yp_test,pos_label=0),recall_score(y_test, yp_test,pos_label=1)])
-    train_results.append([num_layer,accuracy_score(y_train, yp_train),recall_score(y_train, yp_train,pos_label=0),recall_score(y_train, yp_train,pos_label=1)])
-test_results=np.array(test_results)
-train_results=np.array(train_results)
-#generate plots of the performance of different layers 
-def metric_plot(ylabel,layer,yptrain,yptest):
-    fig=plt.figure()
-    plt.plot(layer,yptrain,'o-',color="b")
-    plt.plot(layer,yptest,'o-',color="r")
-    plt.ylabel(ylabel+" Training (blue) and Test (red)",fontsize=16)
-    plt.xlabel("Number of layers in decision tree(max_depth)",fontsize=16)
-metric_plot("ACCURACY(Y=0)",test_results[:,0],train_results[:,1],test_results[:,1])
-metric_plot("RECALL(Y=0)",test_results[:,0],train_results[:,2],test_results[:,2])
-metric_plot("RECALL(Y=1)",test_results[:,0],train_results[:,3],test_results[:,3])
-```
-<br></br>
-To find the most suitable number of layers, several plots was produced. We finally find that we should set max_depth as 3.
-
-
-## Final Results
-```{python}
-model = tree.DecisionTreeClassifier(max_depth=3)
-model = model.fit(x_train,y_train)
-
-yp_train=model.predict(x_train)
-yp_test=model.predict(x_test)
-
-#write a function to visualize the confusion matrix
 def confusion_plot(y_data,y_pred):
     print(
         "ACCURACY: "+str(accuracy_score(y_data,y_pred))+"\n"+
@@ -162,16 +121,32 @@ def confusion_plot(y_data,y_pred):
     fig.set_xlabel("Predicted Labels",fontsize=14)
     fig.set_ylabel("True Labels",fontsize=14)
     plt.show()
+clf=SVC(C=.4,kernel="linear")
+clf.fit(x_train,y_train)
+yp_test=clf.predict(x_test)
+confusion_plot(y_test,yp_test)
+clf=SVC(C=.4,kernel="poly")
+clf.fit(x_train,y_train)
+yp_test=clf.predict(x_test)
+confusion_plot(y_test,yp_test)
+clf=SVC(C=.4,kernel="rbf")
+clf.fit(x_train,y_train)
+yp_test=clf.predict(x_test)
+confusion_plot(y_test,yp_test)
+clf=SVC(C=.4,kernel="sigmoid")
+clf.fit(x_train,y_train)
+yp_test=clf.predict(x_test)
 confusion_plot(y_test,yp_test)
 
-#write a function to visualize the tree
-def plot_tree(model,X,Y):
-    fig = plt.figure(figsize=(10,8))
-    tree_vis= tree.plot_tree(model, feature_names=X.columns,class_names=Y.name,filled=True)
-plot_tree(model,x_test,y_test)
 ```
+<br></br>
+We have tried different kernel, however, whatever kernel we use, the result is totally useless ,much worse than the baseline! 
+
+
+## Final Results
+It seems that linear kernel do the best job. However, actually they are all the same bad. We can not confidently make judgement basde on this model.
 <br></br>
 
 ## Conclusion
 
-The model is not bad. It can correctly distinguish most samples and the accuracy is about 70%.  However, since our target is to find users easily be affected by rumors. A false positive is more acceptable than a false negative, which means it is more acceptable to warn a person not easily be affected than fail to notify a person who may trust a rumor and pass it along! So we can consider to apply this model.
+It turns out SVM is not suitable for our topic,performs much worse than naive bayes when facing the same task.

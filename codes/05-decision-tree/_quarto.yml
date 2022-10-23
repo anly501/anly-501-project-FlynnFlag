@@ -24,6 +24,8 @@ website:
         text: Naive Bayes
       - text: Decision Tree
         file: decision_tree.qmd
+      - text: SVM
+        href: https://flynnflag.quarto.pub/06-svm/svm.html
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 
