@@ -44,13 +44,16 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import confusion_matrix
+#load the data
 df=pd.read_csv("../../data/01-modified-data/cleaned_followers.csv")
 sns.set_theme()
+#plot the distribution
 plt.hist(df.label.astype("string"))
 plt.title("The distribution of the class",fontsize=18)
 plt.xlabel("Class",fontsize=16)
 plt.ylabel("Counts",fontsize=16)
-df
+#show the data
+df.head()
 ```
 
 The count of two classes are the same, 350 for each. This is dsigned when gathering the data("details of followers"). With this kind of data, we can avoid problems brought from imbalanced data sets.
@@ -59,6 +62,7 @@ The count of two classes are the same, 350 for each. This is dsigned when gather
 
 ## Baseline Model for Comparsion
 ```{python}
+#define a baseline model which random assign labels
 def random_classifier(y_data):
     ypred=[]
     max_label=np.max(y_data); #print(max_label)
@@ -136,6 +140,7 @@ To find the most suitable number of layers, several plots was produced. We final
 
 ## Final Results
 ```{python}
+#fit the tree model with the best layer
 model = tree.DecisionTreeClassifier(max_depth=3)
 model = model.fit(x_train,y_train)
 
@@ -174,8 +179,13 @@ def plot_tree(model,X,Y):
     tree_vis= tree.plot_tree(model, feature_names=X.columns,class_names=Y.name,filled=True)
 plot_tree(model,x_test,y_test)
 ```
+With 3 layers, the leaf node seems quite reasonable.The model turns out to be quite trustable both on negative data. And favourite_count seems to be a remarkable metrics when grouping users.
+
+
 <br></br>
 
 ## Conclusion
 
 The model is not bad. It can correctly distinguish most samples and the accuracy is about 70%.  However, since our target is to find users easily be affected by rumors. A false positive is more acceptable than a false negative, which means it is more acceptable to warn a person not easily be affected than fail to notify a person who may trust a rumor and pass it along! So we can consider to apply this model.
+
+Decision tree is unstable, so we can still use bagging(random forest), boosting(xgboost, GDBT, lightBGM, etc) to fit the data in the future.

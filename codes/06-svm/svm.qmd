@@ -32,6 +32,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
@@ -39,13 +40,18 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import confusion_matrix
+#set the seed 
+np.random.seed(1)
+#load the data 
 df=pd.read_csv("../../data/01-modified-data/supervised_data.csv")
 y=df["label"]
+#plot the distribution of two classes
 sns.set_theme()
 plt.hist(y)
 plt.title("The distribution of the class",fontsize=18)
 plt.xlabel("Class",fontsize=16)
 plt.ylabel("Counts",fontsize=16)
+df.head()
 ```
 
 This is an imbalanced data, the number of truth is bigger than the number of rumor. This is induced by two different ways of collecting data. Rumor samples are rather hard to get. 
@@ -55,9 +61,11 @@ In this model, we will try to use sample a equal number of truth from the rows w
 
 ## Baseline Model for Comparsion
 ```{python}
+# transform the label 
 y=y.str.replace("rumor","1")
 y=y.str.replace("truth","0")
 y=y.astype("int")
+#set a baseline model which random predict label
 def random_classifier(y_data):
     ypred=[]
     max_label=np.max(y_data); #print(max_label)
@@ -84,7 +92,7 @@ X=df["text"]
 y=y.str.replace("rumor","1")
 y=y.str.replace("truth","0")
 y=y.astype("int")
-#transform texts
+#transform texts with countvectorizer
 vectorizer = CountVectorizer()
 matrix = vectorizer.fit_transform(X)
 X = pd.DataFrame(matrix.toarray(),columns=vectorizer.get_feature_names_out())
@@ -93,11 +101,29 @@ x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
 ```
 
 This model try to use texts to classify, so our features are texts transformed by "CountVectorizer"
-
 <br></br>
 
 ## Model tuning
 ```{python}
+#find the best hyperparametres with GridSearchCV library
+parameter=[
+    {"C":[1,10,100,1000],"kernel":["linear"]},
+    {"C":[1,10,100,1000],"kernel":["rbf"],"gamma":[0.1,.2,.3,.4,.5,.6,.7,.8,.9]}
+]
+grid_search = GridSearchCV(SVC(), param_grid=parameter, scoring="accuracy",cv=10)
+grid_search=grid_search.fit(X, y)
+print("The best hyperparametres are:",grid_search.best_params_)
+grid_search
+```
+In this part, we use "GridSearchCV" function to help us find the beset parametres so that we don't need to write codes and make some loops manually. The result shows that we should use linear kernel and should set C as 1.
+
+
+<br></br>
+
+
+## Final Results
+```{python}
+#write a function to report and plot the metrics and confusion matrix.
 def confusion_plot(y_data,y_pred):
     print(
         "ACCURACY: "+str(accuracy_score(y_data,y_pred))+"\n"+
@@ -121,32 +147,17 @@ def confusion_plot(y_data,y_pred):
     fig.set_xlabel("Predicted Labels",fontsize=14)
     fig.set_ylabel("True Labels",fontsize=14)
     plt.show()
-clf=SVC(C=.4,kernel="linear")
+#fit the model with the best hyperparametres
+clf=SVC(C=1,kernel="linear")
 clf.fit(x_train,y_train)
 yp_test=clf.predict(x_test)
 confusion_plot(y_test,yp_test)
-clf=SVC(C=.4,kernel="poly")
-clf.fit(x_train,y_train)
-yp_test=clf.predict(x_test)
-confusion_plot(y_test,yp_test)
-clf=SVC(C=.4,kernel="rbf")
-clf.fit(x_train,y_train)
-yp_test=clf.predict(x_test)
-confusion_plot(y_test,yp_test)
-clf=SVC(C=.4,kernel="sigmoid")
-clf.fit(x_train,y_train)
-yp_test=clf.predict(x_test)
-confusion_plot(y_test,yp_test)
-
 ```
-<br></br>
-We have tried different kernel, however, whatever kernel we use, the result is totally useless ,much worse than the baseline! 
-
-
-## Final Results
-It seems that linear kernel do the best job. However, actually they are all the same bad. We can not confidently make judgement basde on this model.
+It seems that even we have used the best hyperparametre, however, the effect of svm is still bad. We can not confidently make judgement basde on this model, since it can hardly distinguish positive samples.
 <br></br>
 
 ## Conclusion
 
-It turns out SVM is not suitable for our topic,performs much worse than naive bayes when facing the same task.
+It turns out SVM is not suitable for our topic,performs much worse than naive bayes when facing the same task. The reason may be that we haven't collected enought data.
+
+Comparing to the naive bayes model, it seems naive bayes still outperform SVM on this task even though its a simple model.

@@ -26,6 +26,12 @@ website:
         href: https://flynnflag.quarto.pub/decision_tree/decision_tree.html
       - text: SVM
         href: https://flynnflag.quarto.pub/06-svm/svm.html
+      - text: Cluster
+        file: svm.qmd
+      - text: ARM and Networking
+        file: svm.qmd
+      - text: Conclusion
+        file: svm.qmd
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 
