@@ -27,7 +27,7 @@ website:
       - text: SVM
         href: https://flynnflag.quarto.pub/06-svm/svm.html
       - text: Cluster
-        file: decision_tree.qmd
+        file: https://flynnflag.quarto.pub/07-clustering/clustering.html
       - text: ARM and Networking
         file: decision_tree.qmd
       - text: Conclusion

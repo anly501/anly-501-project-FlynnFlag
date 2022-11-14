@@ -230,10 +230,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./decision_tree.html" aria-current="page">Cluster</a>
+    <a class="nav-link" href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./decision_tree.html">ARM and Networking</a>
+    <a class="nav-link active" href="./decision_tree.html" aria-current="page">ARM and Networking</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./decision_tree.html">Conclusion</a>
@@ -318,7 +318,7 @@ In this tab, a classification method called <strong><em>Decision Tree</em></stro
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#show the data</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="51">
 
 <div>
 
@@ -434,8 +434,8 @@ In this tab, a classification method called <strong><em>Decision Tree</em></stro
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>-----RANDOM CLASSIFIER-----
-accuracy 0.4757142857142857
-percision, recall, fscore, (array([0.47671233, 0.47462687]), array([0.49714286, 0.45428571]), array([0.48671329, 0.46423358]), array([350, 350], dtype=int64))</code></pre>
+accuracy 0.5114285714285715
+percision, recall, fscore, (array([0.51212121, 0.51081081]), array([0.48285714, 0.54      ]), array([0.49705882, 0.525     ]), array([350, 350], dtype=int64))</code></pre>
 </div>
 </div>
 <p><br><br> What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.</p>
@@ -545,10 +545,10 @@ percision, recall, fscore, (array([0.47671233, 0.47462687]), array([0.49714286, 
 <p><img src="decision_tree_files/figure-html/cell-5-output-2.png" width="599" height="464"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="decision_tree_files/figure-html/cell-5-output-3.png" width="607" height="464"></p>
+<p><img src="decision_tree_files/figure-html/cell-5-output-3.png" width="599" height="464"></p>
 </div>
 </div>
-<p><br><br> To find the most suitable number of layers, several plots was produced. We finally find that we should set max_depth as 3.</p>
+<p><br><br> To find the most suitable number of layers, several plots was produced. We finally find that we should set max_depth as 4.</p>
 </section>
 <section id="final-results" class="level2">
 <h2 class="anchored" data-anchor-id="final-results">Final Results</h2>
@@ -556,7 +556,7 @@ percision, recall, fscore, (array([0.47671233, 0.47462687]), array([0.49714286, 
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the tree model with the best layer</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tree.DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tree.DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.fit(x_train,y_train)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>yp_train<span class="op">=</span>model.predict(x_train)</span>
@@ -595,11 +595,11 @@ percision, recall, fscore, (array([0.47671233, 0.47462687]), array([0.49714286, 
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>plot_tree(model,x_test,y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>ACCURACY: 0.6642857142857143
-NEGATIVE RECALL (Y=0): 0.373134328358209
-NEGATIVE PRECISION (Y=0): 0.8333333333333334
-POSITIVE RECALL (Y=1): 0.9315068493150684
-POSITIVE PRECISION (Y=1): 0.6181818181818182
+<pre><code>ACCURACY: 0.6714285714285714
+NEGATIVE RECALL (Y=0): 0.5064935064935064
+NEGATIVE PRECISION (Y=0): 0.8297872340425532
+POSITIVE RECALL (Y=1): 0.873015873015873
+POSITIVE PRECISION (Y=1): 0.5913978494623656
 </code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -609,7 +609,7 @@ POSITIVE PRECISION (Y=1): 0.6181818181818182
 <p><img src="decision_tree_files/figure-html/cell-6-output-3.png" width="763" height="611"></p>
 </div>
 </div>
-<p>With 3 layers, the leaf node seems quite reasonable.The model turns out to be quite trustable both on negative data. And favourite_count seems to be a remarkable metrics when grouping users.</p>
+<p>With 4 layers, the leaf node seems quite reasonable.The model turns out to be quite trustable both on negative data. And favourite_count seems to be a remarkable metrics when grouping users.</p>
 <p><br><br></p>
 </section>
 <section id="conclusion" class="level2">

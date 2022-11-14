@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: e3cb371c-1075-4461-bf88-e3f03ee01461
+      url: 'https://quartopub.com/sites/flynnflag/07-clustering'

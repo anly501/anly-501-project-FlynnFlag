@@ -29,9 +29,9 @@ website:
       - text: Cluster
         file: https://flynnflag.quarto.pub/07-clustering/clustering.html
       - text: ARM and Networking
-        file: svm.qmd
+        file: clustering.qmd
       - text: Conclusion
-        file: svm.qmd
+        file: clustering.qmd
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 
@@ -41,7 +41,7 @@ website:
 
 format:
   html:
-    include-in-header: svm_header.html
+    include-in-header: clustering_header.html
     code-fold: True
     theme: 
       - cosmo

@@ -135,13 +135,13 @@ metric_plot("RECALL(Y=0)",test_results[:,0],train_results[:,2],test_results[:,2]
 metric_plot("RECALL(Y=1)",test_results[:,0],train_results[:,3],test_results[:,3])
 ```
 <br></br>
-To find the most suitable number of layers, several plots was produced. We finally find that we should set max_depth as 3.
+To find the most suitable number of layers, several plots was produced. We finally find that we should set max_depth as 4.
 
 
 ## Final Results
 ```{python}
 #fit the tree model with the best layer
-model = tree.DecisionTreeClassifier(max_depth=3)
+model = tree.DecisionTreeClassifier(max_depth=4)
 model = model.fit(x_train,y_train)
 
 yp_train=model.predict(x_train)
@@ -179,7 +179,7 @@ def plot_tree(model,X,Y):
     tree_vis= tree.plot_tree(model, feature_names=X.columns,class_names=Y.name,filled=True)
 plot_tree(model,x_test,y_test)
 ```
-With 3 layers, the leaf node seems quite reasonable.The model turns out to be quite trustable both on negative data. And favourite_count seems to be a remarkable metrics when grouping users.
+With 4 layers, the leaf node seems quite reasonable.The model turns out to be quite trustable both on negative data. And favourite_count seems to be a remarkable metrics when grouping users.
 
 
 <br></br>
