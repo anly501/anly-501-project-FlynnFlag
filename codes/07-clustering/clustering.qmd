@@ -15,11 +15,11 @@ Since we try to use clustering, we drop all categorical columns. Additionally, t
 Three clustering methods will be used in the following content, namely,**KMEAN**,**DBSAN** and **Hierarchical Clustering**.
 These tree methods are all based on the similarity(by calculating euclidean distance) of the instance.
 
-Kmeans clusters the instances by continuously searching K centers. 
+Kmeans clusters the instances by continuously searching K centers. I will use both elbow method and silhouette method to decide how much groups it should be.
 
-DBSAN groups the data points which the extent of similarity is below a certain level.
+DBSAN groups the data points which the extent of similarity is below a certain level. I will use nearestneighbors to decide the extent of similarity I should choose.
 
-Hierarchical Clustering sequentially combine the most similar instances/groups. The similarity in a combination should below a certain level.
+Hierarchical Clustering sequentially combine the most similar instances/groups. Every single combination combines the most similar data point and set them as a level. The final group set can be any number I want. In this case, I will set 2 since this is the number the original data set says. 
 
 
 ## Method
