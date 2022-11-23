@@ -11,12 +11,41 @@
       .source{ background-color: #F4F4F4;width:400px;}
       .cap_title{padding-left: 20px;margin-bottom:0px;font-size: 20px;font-weight: bold;}
       .words{margin:0px;padding: 20px;font-size: 16px;}
+      .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-right: 40px;background-color:	#fcfcfc;padding-top: 14px;padding-bottom: 21px;}
+      .nav_bar a:link{color:black ;}
+      .nav_bar a:visited{color:black;}
+      .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
+      a.clean_prepare_link:visited{color:white;}
+      a.clean_prepare_link{text-decoration: none;font-weight:bold;color:white;}
+      .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
+      .clean_footer{background-color: #F0F0F0;height:600px;display:flex;flex-direction: row;justify-content:center;}
+      .clean_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;font-size: 20px;margin-bottom: 20px;}
+      .clean_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
+      .clean_prepare_title_box{display:flex; flex-direction: row;justify-content:center;height:380px}
+      .clean_prepare_box{background-color:#313030;height:250px;display:flex; flex-direction:row;justify-content:space-around;}
+      .clean_routine_box{display:flex; flex-direction: column;align-items:center;margin-top: 0px;}
+      .clean_prepare_links_li{list-style:none;margin-bottom: 5px;}
     </style>
 
 </head>
 
 
 <body>
+  <div class="nav_bar">
+    <a href="about.html">Home</a>
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data">Data</a>
+    <a href="intro.html">Intro</a>
+    <a href="./data_gathering.html">Data Gathering</a>
+    <a href="./data_cleaning.html">Data Cleaning</a>
+    <a href="./exploring_data.html">Exploring Data</a>
+    <a href="./naive_bayes.html">Naive Bayes</a>
+    <a href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
+    <a href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
+    <a href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
+    <a href="./main_page.html">ARM and Networking</a>
+    <a href="./main_page.html">Conclusion</a>
+  </div>
     <div class="child-top">
     
       <div class = subtitle>
@@ -27,13 +56,13 @@
 
      <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
         <h1 style="color: #d6d3c9;text-align:right;">
-          Anly-501 Project 
+          Rumor & Susceptible User Detection
         </h1>
         <p style="color:grey;margin-top: -15px;text-align:right;">
-          A full data science life cycle.
+          Georgetown University DSAN Anly-501 Project 
         </p>
-        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right" >
-          &copy; 2022 Yifan Bian 501 Project, powered by GU domain
+        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right;font-style: oblique;" >
+          A full data science life cycle
          </p>
 
       </div>
@@ -44,32 +73,34 @@
 <!--box containing 2 groups -->
 <div class="box">
     <div class="source">
-      <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">
+      <a href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/data/00-raw-data/truth.csv">
       <img src="images/Truth.jpg" style="width: 400px;height: 250px;">
       </img>
       </a>
       <div>
         <p class = "cap_title">
-          Real Truth Text(click the picture to access the data)
+          truth.csv
         </p>
         <p class = "words">
-          This is a data set, which is got by python, about what news agencies text on twitter.To make my model recogonize the difference between truth and rumor, I have to find some samples, and labeled them as "0". This data set can be used as a training or test set to build a model which can tell truth apart from rumor.  (The results has been uploaded to github.)
+          The instances in this data set include tweets from news agencies, famous reporters, and institutions. This data set is collected by accessing Twitter API with python. These instances are used to build rumor detection, functioning as negative samples (not rumors).
         </p>
       </div>
     </div>
     <div class="source">
-      <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">
-      <img src="images/rumor tweet.jpg" style="width: 400px;height: 250px">
+      <a href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/data/00-raw-data/rumor_manually.csv">
+      <img src="images/rumor_from_fact_check.jpg" style="width: 400px;height: 250px">
       </img>
       </a>
       <div >
         <p class = "cap_title">
-          Tweet Samples Including "Rumor"(click the picture to access the data)
+          rumor_manually.csv 
         </p>
         <p class = "words">
-          This is a data set about what people talk about rumor, which can be used as part of exploratory data analysis.I use my api to search to any sentence which included this specific word. This data will basically be used to do some research before building the model(to find some trends, to decide what kind of features I should conside,etc) This data set is acquired by R.(The results has been uploaded to github.)</p>
+          This is a collection of rumors on Twitter. This data set is collected and labeled manually. All rumor tweets are found from the fact-check reports on the official website of "Reuters" because they always put links to the source of the rumors in their reports. These instances are used to build rumor detection.
+        </p>
       </div>
     </div>
+    
 </div>
  
 
@@ -78,35 +109,121 @@
 <!--box containing 2 groups -->
 <div class="box">
   <div class="source">
-    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/data/01-modified-data/supervised_data.csv">
     <img src="images/rumor.webp" style="width: 400px;height: 250px">
     </img>
     </a>
     <div>
       <p class = "cap_title">
-        Rumor dataset
+        supervised_data.csv
       </p>
       <p class = "words">
-        This data set is downloaded from public open source. It contains text and metadata scraped from 244 websites tagged as "bullshit" by the BS Detector Chrome Extension. This will be part of our labeled data to train a model.The dataset contains text and metadata from 244 websites and represents 12,999 posts in total. The data was pulled using the webhose.io API.
+        This data set labels and merges “truth.csv” and “rumor_manually.csv”. Rumor detection models are built based on this data set.
       </p>
     </div>
   </div>
+
   <div class="source">
-    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">
-    <img src="images/rumor_from_fact_check.jpg" style="width: 400px;height: 250px">
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/data/00-raw-data/followers.csv">
+    <img src="images/followers.jpg" style="width: 400px;height: 250px">
     </img>
     </a>
-    <div >
+    <div>
       <p class = "cap_title">
-        Rumors on Twitter 
+        follwers.csv
       </p>
       <p class = "words">
-        This is a collection of ruomrs on tweet. This data set is collected and labeled manually. All rumor tweets are found from the fact-check reports on official website of "Reuters", because they always put links of the source of the rumors in their reports. What I did is clicking the links and write down the text, the interaction number of that rumor.
+        The data is based on the previous data sets. I track the followers of accounts publishing rumors and of accounts texting the truth and collect their account information with Twitter API. This data set is used to build susceptible user detection
       </p>
     </div>
   </div>
-</div>
 
+</div>
+<br>
+
+<footer>
+  <div style="height:100px">
+  </div>
+  <div class="clean_prepare_title_box">
+    <div>
+    </div>
+    <div style="width:1450px;background-color:#1C3352;">
+      <p style="color:white;font-size:40px;text-align:center;padding-top: 0px;margin-bottom: 10px;">
+        Process of Preparing Data
+      </p>
+      <div class="clean_routine_box">
+        <p style="color:white;font-size:18px;text-align:left;padding-left:10px;padding-right:10px;width: 700px;margin-top: 0px;">
+          The data used is about the texts of tweets and the account features. Raw data sets were cleaned, merged and labeled by different files.The following picture shows how data sets and codes were used and organized before building a model.
+        </p>
+        <div style="height:10px;">
+        </div>
+        <img src="images/data_prepare_routine.png" style="width:1100px;margin-bottom: 0px;"> 
+        </img>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class = clean_prepare_box >
+
+<!--the following div is the first list --> 
+    <div class="clean_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2  style="color:white">
+        Data
+      </h2>
+    <ul style="border-left:1px solid white;">
+      <li class="clean_prepare_links_li">
+        <a class="clean_prepare_link" href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">Raw Data</a>
+      </li>
+      <li class="clean_prepare_links_li">
+        <a class="clean_prepare_link" href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/01-modified-data">Modified Data</a>
+      </li>
+    </ul>
+    </div>
+<!--the following div is the second list -->    
+    <div class="clean_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2  style="color:white">
+        Code
+      </h2>
+      <ul style="border-left:1px solid white;">
+        <li class="clean_prepare_links_li">
+          <a class="clean_prepare_link" href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/01-data-gathering">Gathering Data</a>
+        </li>
+        <li  class="clean_prepare_links_li">
+          <a class="clean_prepare_link" href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/02-data-cleaning">Cleaning Data</a>
+        </li>
+      </ul>
+    </div>
+<!--the following div is the third list -->    
+    <div class="clean_prepare_links_list">
+      <div style="height:100px;">
+      </div>
+      <h2 style="color:white">
+        Describe
+      </h2>
+      <ul style="border-left:1px solid white;">
+        <li class="clean_prepare_links_li">
+          <a class="clean_prepare_link" href="./data_gathering.html">Data Gathering Page</a>
+        </li>
+        <li class="clean_prepare_links_li">
+          <a class="clean_prepare_link" href="./data_cleaning.html">Data Cleaning Page</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="background-color:#313030">
+    <div style="height:50px">
+    </div>
+    <hr style="width: 1400px;color:white">
+    <div style="height:40px">
+      <p style="color:	#8d8d8d; margin-left:55px"> &copy; 2022 Yifan Bian 501 Project, powered by GU domain </p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
