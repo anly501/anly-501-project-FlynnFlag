@@ -4,7 +4,7 @@
     "href": "svm.html",
     "title": "",
     "section": "",
-    "text": "In this tab, a classification method called SVM(Supported Vector Machine) is used. This method “draw a bound” at the middle of the distance between the closest two samples.  \n\n(Example how svm functions)\n\n\nAdvantages of this method is: SVM performs reasonably well when the difference between classes is huge.\nWith SVM, we are going to solve the following application\n\n\nDistinguish rumors from truth"
+    "text": "In this tab, a classification method called SVM(Supported Vector Machine) is used. This method “draw a bound” at the middle of the distance between the closest two samples.  \n\n(Example how svm functions)\n\n\nBeside, by appling “kernel trick”, SVM can also draw non-linear lines to seperate points.  \n\n(Example how kernel svm functions)\n\n\nAdvantages of this method is: SVM performs reasonably well when the difference between classes is huge.\nWith SVM, we are going to solve the following application\n\n\nRumor Detection"
   },
   {
     "objectID": "svm.html#class-distribution",

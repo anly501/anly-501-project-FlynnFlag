@@ -21,9 +21,6 @@
       a.clean_prepare_link:visited{color:white;}
       a.clean_prepare_link{text-decoration: none;font-weight:bold;color:white;}
       .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
-      .clean_footer{background-color: #F0F0F0;height:600px;display:flex;flex-direction: row;justify-content:center;}
-      .clean_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;font-size: 20px;margin-bottom: 20px;}
-      .clean_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
       .clean_prepare_title_box{display:flex; flex-direction: row;justify-content:center;height:380px}
       .clean_prepare_box{background-color:#313030;height:250px;display:flex; flex-direction:row;justify-content:space-around;}
       .clean_routine_box{display:flex; flex-direction: column;align-items:center;margin-top: 0px;}
@@ -32,6 +29,17 @@
       .nav_bar a:link{color:black ;}
       .nav_bar a:visited{color:black;}
       .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
+      .clean_detail{background-color: #F0F0F0;padding-top: 30px;padding-bottom: 100px;display:flex;flex-direction:column;align-items: center;}
+      .clean_detail_title{display:flex;flex-direction:row;width: 1240px;}
+      table{text-align: left;border-spacing: 0px;width: 1240px;}
+      td{padding:15px}
+      thead tr{background-color:white;font-weight: bold;}
+      thead td{padding: 10px;border-bottom: black 1px solid;}
+      tbody td{padding: 8px;}
+      tbody tr:nth-child(even){background-color: white;}
+      tbody tr:hover{background-color: #9e9e9e;}
+
+
     </style>
 
 </head>
@@ -82,11 +90,8 @@
 <section class="clean_process_huge_box">
   <div class="clean_process_middle_box">
   <div class="clean_process_head">
-    <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 0px;">
-      Process of Data Cleaning
-    </p>
-    <p style="font-size: 18px; font-weight:bold;margin-top: 0px;margin-bottom:50px;">
-      One of the most important step.
+    <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 10px;">
+      Process
     </p>
   </div>
 
@@ -102,7 +107,7 @@
         <div style="height:10px;">
         </div>
         <p class = "clean_process_words">
-          Raw data sets are collected by accessing APIs, dowloading from public open sources, etc. See more details on "Data Gathering" page.
+          Raw data sets are collected by accessing APIs or by manually recording on Twitter. See more details on "Data Gathering" page.
         </p>
         <!--the following div is used for plugging a space between texts -->
         <div style="height:70px;">
@@ -129,7 +134,7 @@
         <div style="height:10px;">
         </div>
         <p class = "clean_process_words">
-          During the data cleaning process, I filled/droped the missing values, transformed the data of the same metrics from different tables to the same standards,tokenized and vectorized texts with "CounterVectorized", etc. More details at the end of this page.
+          During the data cleaning process, I filled/droped the missing values, transformed the data of the same metrics from different tables to the same standards,tokenized and vectorized texts with "CounterVectorized", etc. More details on the following parts of this page.
         </p>
         <!--the following div is used for plugging a space between texts -->
         <div style="height:20px;">
@@ -176,27 +181,50 @@
 <div style="height:90px">
 </div>
 
-<div class="clean_footer">
-    <div style="width:900px">
-        <div style="height:100px">
-        </div>
-        <p class="clean_footer_title">
-            What I have done with my codes?
-        </p>
-        <p class="clean_footer_text" style="margin-bottom: 5px;">
-            1.Raw data:"rumor.csv" --> Codes:"data_cleaning_python.ipynb" --> Modified data:"labeled_rumor_python.csv"
-        </p>
-        <p class="clean_footer_text" style="margin-bottom:20px;">
-          There are mutiple languages in the data set,so I firstly drop the unstructured data which is not written in English. Since the data set is collected by crawled during a certain period, so I drop the date of crawling and in case it will cause skew in the model trained.Columns like id, img_url,spam_score are useless, we need to drop them. The values of ord_in_thread are 0 for all rows, which is meaningless. We also drop it. I transformed the value of author as 0/1. 0 means anonymous, while 1 means the name of writer is recorded. All Na values were also be considered as anonymous. We cannot replace data with missing value of unstructed data. There is not a properly way to fill na in country.So we just drop certain rows. Finally we delete the rows where its type is "satire","junksci" and "state" to ensure it is a rumor. This will increase the quality of the data. Used countervectorized create the model and fit the model to the data. Changed the dtype to int32 to decrease the size of data to store it. 
-        </p>
-        <p class="clean_footer_text" style="margin-bottom: 5px;">
-          2.Raw data:"truth.csv" --> Codes:"data_cleaning_r" --> Modified data:"labeled_truth_R.csv"
-        </p>
-        <p class="clean_footer_text" style="margin-bottom: 5px;">
-          Firstly,I transforms cities to country. There are urls at the end of every tweet, so I write a normal expression to drop them. Finally, I added a label.
-        
-        </p>   
-    </div> 
+<div class="clean_detail">
+  <div class="clean_detail_title">
+    <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 10px;">
+      Detail
+    </p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        <td>Raw Data </td>
+        <td>Code </td>
+        <td>Implement</td>
+        <td>Reason</td>
+        <td>Modified Data</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>followers.csv </td>
+        <td>followers_cleaning_python.ipynb </td>
+        <td>Encoded categorical columns, droped useless coulmns.</td>
+        <td>Make data available for modeling.</td>
+        <td>cleaned_followers.csv</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>truth.csv</td>
+        <td>data_cleaning_r.R</td>
+        <td>Labeled the instances, unified the values, deleted the urls in the unstructured data</td>
+        <td>Unified file format and preprocess text data.</td>
+        <td>labeled_truth_R.csv</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>cleaned_rumor_manually.csv & labeled_truth_R.csv</td>
+        <td>supervised_clean_python.ipynb</td>
+        <td>droped useless columns,merged two tables</td>
+        <td>Make data available for modeling.</td>
+        <td>cleaned_supervised_data.csv</td>
+      </tr>
+   </tbody>
+  </table>
 </div>
 <br>
 

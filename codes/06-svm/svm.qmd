@@ -12,13 +12,19 @@ In this tab, a classification method called ***SVM(Supported Vector Machine)*** 
 <center>*(Example how svm functions)*</center>
 <br></br>
 
+Beside, by appling "kernel trick", SVM can also draw non-linear lines to seperate points.
+<br></br>
+![](kernel_svm.jpg)
+<center>*(Example how kernel svm functions)*</center>
+<br></br>
+
 Advantages of this method is: SVM performs reasonably well when the difference between classes is huge.
 
 With SVM, we are going to solve the following application
 
 ---
 
-<center>**Distinguish rumors from truth**</center>
+<center>**Rumor Detection**</center>
 
 --- 
 
