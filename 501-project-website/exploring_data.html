@@ -63,32 +63,39 @@
          </p>
 
       </div>
-    </div>
-    <div class="blank">
 
     </div>
+    <br>
+    <div style="display:flex; flex-direction: row;justify-content:center;margin-bottom: 30px;">
+        <div style="width:1250px ;">
+            <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 10px;">
+            Analysis on Accounts Sending Rumors
+            </p>
+        </div>
+    </div>
+
 <!--box containing chart and caption -->
 <section class="position">
     <div class="blank">
     </div>
     <div class="explore_box">
         <!-- the visualization -->
-        <img src="images/rumors_domain_rank.png" style="width: 580px;padding-bottom: 10px;">
+        <img src="images/rumor_distribution.png" style="width: 580px;padding-bottom: 10px;">
         </img>
         <!--the caption -->
         <div class="caption" style="width: 670px;">
             <p class = "explore_cap_title">
-            Where rumors spreads?
+            How much impact they have?
             </p>
             <div style="height: 14px;">
             </div>
             <p class = "explore_words">
-            By visulizing the distribution of 11179 rumors, we can find that rumors exist everywhere. No matter how popular the domain is, there are rumors on it. Additionally, rumors are more likely to appear on relatively popular domains, which is a bit counterintuitive.
+            According to my data, the accounts with relatively low number of followers are the most. 60 out of 100 accounts was followed by less than 40,000 people. However, there still exsit accounts with huge influnce, which means account with high number of followers are still possibly sending rumors.
             </p>
             <div style="height:90px;">
             </div>
             <p class = "data_source">
-                Data set used:  labeled_rumor_python.csv
+                Data set used:  cleaned_rumor_manually.csv
             </p>
         </div>
     </div>
@@ -105,22 +112,22 @@
     </div>
     <div class="explore_box">
         <!-- the visualization -->
-        <img src="images/rumors_real-name_vs_anonymous.png" style="width: 580px;padding-bottom: 10px;">
+        <img src="images/rumors_verified.png" style="width: 580px;padding-bottom: 10px;">
         </img>
         <!--the caption -->
         <div class="caption" style="width: 670px;">
             <p class = "explore_cap_title">
-            What about the author of rumors?
+            Are they verified?
             </p>
             <div style="height: 14px;">
             </div>
             <p class = "explore_words">
-            Signed rumors are much more than anonymous rumors. Among 11179 rumors, more than 9000 rumors can be traced. We are able to find who created these texts rapidly and easily. However, there are still more than 2000 rumors are anonymous. 
+                Among these acounts, 25% accounts are verified. Considering the limitation of being verfied on Twitter, the rate is relatively high. This means, even an account seems to be official and authoritative, it is also possible for it to publish rumors.  
             </p>
             <div style="height:90px;">
             </div>
             <p class = "data_source">
-                Data set used:  labeled_rumor_python.csv
+                Data set used:  cleaned_rumor_manually.csv
             </p>
         </div>
     </div>
@@ -129,6 +136,45 @@
 </section>
 
 <div class="blank">
+</div>
+
+<!--box containing chart and caption -->
+<section class="position">
+    <div class="blank">
+    </div>
+    <div class="explore_box">
+        <!-- the visualization -->
+        <img src="images/rumors_account_description.png" style="width: 580px;padding-bottom: 10px;">
+        </img>
+        <!--the caption -->
+        <div class="caption" style="width: 670px;">
+            <p class = "explore_cap_title">
+            How their descriptions are written?
+            </p>
+            <div style="height: 14px;">
+            </div>
+            <p class = "explore_words">
+            Many account ask for freedom in their descriptions. It is quite often for such accounts to ask people follow them. Hoster of specific insitution is quite normal in this group, which is the reason why there are so many verified accounts. In addtion, politics is the topic mentioned the most in their descriptions.
+            </p>
+            <div style="height:90px;">
+            </div>
+            <p class = "data_source">
+                Data set used:  cleaned_rumor_manually.csv
+            </p>
+        </div>
+    </div>
+    <div class="blank">
+    </div>
+</section>
+
+
+<br>
+<div style="display:flex; flex-direction: row;justify-content:center;margin-bottom: 30px;">
+    <div style="width:1250px ;">
+        <p style="font-size: 50px; font-weight:bold;margin-bottom: 10px;padding-bottom: 10px;">
+        Analysis on Rumors
+        </p>
+    </div>
 </div>
 
 <!--box containing chart and caption -->
@@ -147,12 +193,12 @@
             <div style="height: 14px;">
             </div>
             <p class = "explore_words">
-            Political topics are the most common topic of rumors. Celebrities and countries are often used when rumormongers are writing rumors. 
+                Russo-Ukrainian War, Covid and election is the main topic of rumors. Since all the rumors collected appeared in 2022, it is obvious that the content of rumors tend to be the recent hotspots. Besides, celebrities, like Bill Gates, are also a popular part of rumors. "Breaking" is frequently used in writing rumors. 
             </p>
             <div style="height:90px;">
             </div>
             <p class = "data_source">
-                Data set used:  labeled_rumor_python.csv
+                Data set used:  cleaned_rumor_manually.csv
             </p>
         </div>
     </div>
@@ -179,12 +225,12 @@
             <div style="height: 14px;">
             </div>
             <p class = "explore_words">
-            The visualization of the numbers of likes and shares of rumors are rather wierd, but it is what happened in the real world. Although there are so many rumors, all of these rumors are neither widely shared or liked. The maxiumns of both metrics are only 2.
+                Most rumors were shared with less than 500000 times and were liked with less than 20000 times. Some rumors are widely spread.
             </p>
             <div style="height:90px;">
             </div>
             <p class = "data_source">
-                Data set used:  labeled_rumor_python.csv
+                Data set used:  cleaned_rumor_manually.csv
             </p>
         </div>
     </div>
@@ -207,8 +253,8 @@
             <div style="height: 14px;">
             </div>
             <p class = "explore_words">
-            For real events, the distribution of numbers of likes and shares are much more than the ones of rumors. They are also more various. Besides, the numbers of likes and the numbers of shares have a positive relationship in general. 
-            </p>
+            For real events, the stats are low. This makes sense since rumors are always related to important events and are full of emotion, while real events are always boring.
+           </p>
             <div style="height:90px;">
             </div>
             <p class = "data_source">
@@ -223,7 +269,7 @@
 <div class="blank">
 </div>
 
-<footer class="explore_footer">
+<div class="explore_footer">
     <div>
         <div style="height:100px">
         </div>
@@ -231,7 +277,7 @@
             Method Used:
         </p>
         <p class="explore_footer_text">
-            The visualization is created by using python packages "Seaborn" and "Wordcloud".
+            The visualization is created by using python packages "CountVectorizer", "Seaborn" and "Wordcloud".
         </p>
         <p class="explore_footer_title">
             Process:
@@ -242,10 +288,18 @@
         <p class="explore_footer_title">
             Link of Codes:
         </p>
-        <a href="https://drive.google.com/drive/folders/1GISy91da8Q2dMnbqZztFYD3Ly9RcWYgJ">
-            Click to visit.
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/03-explore-data">
+            Click.
         </a>
-    </div> 
+    </div>
+</div>
+<footer>
+<div style="background-color:#313030">
+
+    <div style="height:50px;padding-top: 3px;margin-top: 0px;">
+      <p style="color:	#8d8d8d; margin-left:55px"> &copy; 2022 Yifan Bian 501 Project, powered by GU domain </p>
+    </div>
+  </div>
 </footer>
 
 </body>

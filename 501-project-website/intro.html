@@ -5,7 +5,21 @@
 <head>
     <title>Yifan Bian 501 Project Intro</title>
     <style>
-      .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
+      .headline {background-image: url("./images/rumor_blur.jpg");background-position:center;background-size:cover;padding-top: 300px;padding-bottom: 300px;margin: 0%;display: flex;flex-direction: row;justify-content:center;} 
+      .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-right: 40px;background-color:	#fcfcfc;padding-top: 14px;padding-bottom: 21px;}
+      .nav_bar a:link{color:black ;}
+      .nav_bar a:visited{color:black;}
+      .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
+      table{text-align: left;border-spacing: 0px;width: 850px;font-size: 18px;margin-top: 0px;color:#4a4a4a}
+      td{padding:15px}
+      thead tr{background-color:white;font-weight: bold;}
+      thead td{padding: 10px;border-bottom: black 1px solid;}
+      tbody td{padding: 8px;}
+      tbody tr:nth-child(even){background-color: white;}
+      tbody tr:hover{background-color: #9e9e9e;}
+      .question{width: 1240px;margin-bottom: 50px;display:flex; flex-direction:column;align-items: center;}
+      .question h1{color: #366fac;font-size: 28px;font-weight:400;}
+      .question p{font-size:20px;color: #4a4a4a;width: 1000px;margin-top: 0px;}
  
     </style>
 
@@ -13,56 +27,116 @@
 
 
 <body>
-    <div class="child-top">
-    
-      <div class = subtitle>
-        <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
-          Introduction
-        </p>
-      </div>
-
-     <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
-        <h1 style="color: #d6d3c9;text-align:right;">
-          Anly-501 Project 
-        </h1>
-        <p style="color:grey;margin-top: -15px;text-align:right;">
-          A full data science life cycle.
-        </p>
-        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right" >
-          &copy; 2022 Yifan Bian 501 Project, powered by GU domain
-         </p>
-
-      </div>
+  <div class="nav_bar">
+    <a href="about.html">Home</a>
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
+    <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data">Data</a>
+    <a href="intro.html">Intro</a>
+    <a href="data_gathering.html">Data Gathering</a>
+    <a href="data_cleaning.html">Data Cleaning</a>
+    <a href="exploring_data.html">Exploring Data</a>
+    <a href="./naive_bayes.html">Naive Bayes</a>
+    <a href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
+    <a href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
+    <a href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
+    <a href="./main_page.html">ARM and Networking</a>
+    <a href="./main_page.html">Conclusion</a>
+  </div>
+    <div class="headline">
+      <p style="color: white;font-size: 80px;font-weight: bold;text-shadow: 0 0 20px black;font-style: oblique;">
+        Rumor & Susceptible User Detection
+      </p>
     </div>
 
     <div style="height: 10px;">
-
     </div>
-    <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;">
+
+    <br>
+
+    <p style="font-size: 50px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
       Intro
     </p> 
-    <div style="padding: 20px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;">
-      When I was an undergraduate majoring journalism, I really be caught by one concept: rumor. The reason is: even I have a deep understanding about its causes and features, retweeting a crude rumor is still normal for me. Rumor has existed for hundreds of years and has brought many adverse effects. A special education called "media literacy education" has been implemented for more than one hundred years, asking people to critically think about the messages they get. Unluckily, you can easily understand its effect from my experience. So to solve the problem brought by rumor, we should not hope that our stupid human nature will be improved. Let an inhumane machine do this! We can hardly prevent users from trusting the content unless we do these:(1)detect and eliminate rumors as soon as possible. (2)find people who are more easily be affect by rumors and warn them. These are exactly the two targets which models trained in the next several parts try to achieve.
+    <div>
+      <p style="padding-top: 20px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;margin-bottom: 0px;">
+      When I was an undergraduate majoring journalism, I really be caught by one concept: "Rumor". The reason is: even I have a deep understanding about its causes and features, retweeting a crude rumor is still normal for me. Rumor has existed for hundreds of years and has brought many adverse effects. A special education called "media literacy education" has been implemented for more than one hundred years, asking people to critically think about the messages they get. Unluckily, you can easily understand its effect from my experience. 
+      </p>
+      <p style="padding-top: 10px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;">
+        To improve this situation, this project is created.
+      </p>
+    </div>
 
+    <br>
+
+    <p style="font-size: 50px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
+      More About
+    </p> 
+    <div style="display:flex; flex-direction: column;align-items:center;">
+    <div class="question">
+      <h1>
+        What applications will be created in this project?
+      </h1>
+      <p>
+        To solve the problem brought by rumor, we should not hope that our stupid human nature will be improved. Let an inhumane machine do this! We can hardly prevent users from trusting the content unless we do these: (1)Detect and eliminate rumors as soon as possible. (2)Find people who are more easily be affect by rumors and warn them. These are exactly the two targets which models trained in the next several parts try to achieve. In real-world rumor prevention system, these two models should be both included. The details are shown as following.
+      </p>
+      <div style="display:flex; flex-direction: row;justify-content:center;">
+        <table>
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Target </td>
+              <td>Model Used</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rumor Detection </td>
+              <td>Detect rumors</td>
+              <td>Naive Bayes, SVM</td>
+            </tr>
+            <tr>
+              <td>Susceptible User Detection</td>
+              <td>Find people who are more easily be affect by rumors.</td>
+              <td>Decision Tree, Clustering</td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
     </div>
     <div class="question">
       <h1>
-        Why this topic is important?
+        How these concepts are transformed to concrete practices? / How the project is designed? 
       </h1>
+      <p>
+        The rumor instances are tweets judged as "false" by a third party fact-check insitution "Reuters Fact Check". The truth instances are the tweets sent by verified insitutions like news agencies. Users who are more or not easily be affect by rumors are the followers of rumor sources and verified insitutions respectively. Rumor detection model is built based on rumor instances and truth instances. Susceptible user detection model is built based on two groups of followers.
+      </p>
     </div>
     <div class="question">
       <h1>
-        Why rumor can not be prevent?
+        What have been done by others previously and what's the innovation in this project?
       </h1>
-    </div>
-    <div class="question">
-      <h1>
-        What applications have been created?
-      </h1>
+      <p>
+        There has been some similar detection. Most models was built simply based on unstructured data of rumors. However, in this project we will take both users who sending rumors and users who may be infected by rumors into consideration.
+      </p>
     </div>
     <div class="question">
       <h1>
         Where it can be applied to?
+      </h1>
+      <p>
+        It can only be applied to Twitter, to detect rumor and warn the users so that they cannot be influenced by rumors. Since the data sets are collected from Twitter, and the popluation, functions, etc varies on different platform, we may not apply the models to other platform.
+      </p>
+    </div>
+    <div class="question">
+      <h1>
+        What's the importance of this project?
+      </h1>
+      <p>
+        According to the theroies of communication, rumors is related to important events or sensitive topics. These events or topics are easy to arouse the attention, concern or interest of people, causing the wide spread of fake information on social medias and leading to social discontent.
+     </p>
+    </div>
+    <div class="question">
+      <h1>
+        Why rumor can not be prevent?
       </h1>
     </div>
     <div class="question">
@@ -90,12 +164,15 @@
         Why this topic is based on a platform like twitter?
       </h1>
     </div>
-    <div class="question">
-      <h1>
-        What's the commonality of rumors?
-      </h1>
-    </div>
-
+  </div>
+  <footer>
+    <div style="background-color:#313030">
+    
+        <div style="height:50px;padding-top: 3px;margin-top: 0px;">
+          <p style="color:	#8d8d8d; margin-left:55px"> &copy; 2022 Yifan Bian 501 Project, powered by GU domain </p>
+        </div>
+      </div>
+    </footer>
 
 
 </body>
