@@ -52,24 +52,25 @@
     </div>
 
     <br>
-
-    <p style="font-size: 50px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
-      Intro
-    </p> 
-    <div>
-      <p style="padding-top: 20px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;margin-bottom: 0px;">
-      When I was an undergraduate majoring journalism, I really be caught by one concept: "Rumor". The reason is: even I have a deep understanding about its causes and features, retweeting a crude rumor is still normal for me. Rumor has existed for hundreds of years and has brought many adverse effects. A special education called "media literacy education" has been implemented for more than one hundred years, asking people to critically think about the messages they get. Unluckily, you can easily understand its effect from my experience. 
-      </p>
-      <p style="padding-top: 10px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;">
-        To improve this situation, this project is created.
-      </p>
-    </div>
-
-    <br>
-
-    <p style="font-size: 50px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
-      More About
-    </p> 
+  <div style="display:flex; flex-direction:column;align-items: center;"> 
+    <div style="width:1150px;">
+      <p style="font-size: 40px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
+        Intro
+      </p> 
+      <div>
+        <p style="padding-top: 20px;padding-right:80px;padding-left:80px;font-size: 20px;margin-top: 0px;margin-bottom: 0px;color:#4a4a4a;">
+        When I was an undergraduate majoring journalism, I really be caught by one concept: "Rumor". The reason is: even I have a deep understanding about its causes and features, retweeting a crude rumor is still normal for me. Rumor has existed for hundreds of years and has brought many adverse effects. A special education called "media literacy education" has been implemented for more than one hundred years, asking people to critically think about the messages they get. Unluckily, you can easily understand its effect from my experience. 
+        </p>
+        <p style="padding-top: 10px;padding-right:80px;padding-left:80px;font-size: 20px;margin-top: 0px;color: #4a4a4a;">
+          To improve this situation, this project is created.
+        </p>
+      </div>
+      <br>
+      <p style="font-size: 40px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;">
+        More About
+      </p> 
+    </div> 
+  </div>
     <div style="display:flex; flex-direction: column;align-items:center;">
     <div class="question">
       <h1>
@@ -104,6 +105,14 @@
     </div>
     <div class="question">
       <h1>
+        Why we need to combine these two models to prevent rumors from spreading?
+      </h1>
+      <p>
+        Essentially, this method pays attention to both disseminators and receivers, which means it is a double verification, making it more accurate.
+      </p>
+    </div>
+    <div class="question">
+      <h1>
         How these concepts are transformed to concrete practices? / How the project is designed? 
       </h1>
       <p>
@@ -112,10 +121,18 @@
     </div>
     <div class="question">
       <h1>
-        What have been done by others previously and what's the innovation in this project?
+        What have been done by others previously?
       </h1>
       <p>
-        There has been some similar detection. Most models was built simply based on unstructured data of rumors. However, in this project we will take both users who sending rumors and users who may be infected by rumors into consideration.
+        There has been some similar detection. Most models was built simply based on unstructured data of rumors. In the process of data gathering, most people collected rumors with the help of fact-check insitution. 
+      </p>
+    </div>
+    <div class="question">
+      <h1>
+        what's the innovation in this project?
+      </h1>
+      <p>
+         In this project I will take both users who sending rumors and users who may be infected by rumors into consideration.
       </p>
     </div>
     <div class="question">
@@ -128,6 +145,22 @@
     </div>
     <div class="question">
       <h1>
+        What features the models will included?
+      </h1>
+      <p>
+        For rumor detection, the features include rumor text, favourite number, retweet number, user id, whether the account is verified. For susceptible user detection, the features include user id, follower number, friend number, the number of public lists that this user is a member of, the number of tweets this user has liked in the account's lifetime, the number of tweets the account issued and whether user has chosen to protect their Tweets.
+      </p>
+    </div>
+    <div class="question">
+      <h1>
+        What machine learning techniques will be included?
+      </h1>
+      <p>
+        Naive bayes, decision tree, SVM, clustering, ARM and networking will be included in this project.
+      </p>
+    </div>
+    <div class="question">
+      <h1>
         What's the importance of this project?
       </h1>
       <p>
@@ -136,35 +169,14 @@
     </div>
     <div class="question">
       <h1>
-        Why rumor can not be prevent?
-      </h1>
-    </div>
-    <div class="question">
-      <h1>
-        What kind of features it will included?
-      </h1>
-    </div>
-    <div class="question">
-      <h1>
-        What theroies will it based on?
-      </h1>
-    </div>
-    <div class="question">
-      <h1>
-        How people pass a rumor on twitter?
-      </h1>
-    </div>
-    <div class="question">
-      <h1>
-        What machine learning techniques will be included?
-      </h1>
-    </div>
-    <div class="question">
-      <h1>
         Why this topic is based on a platform like twitter?
       </h1>
+      <p>
+        Firstly, compared to video platform like Tiktok or Youtube, text data is more suitable for machine learning models. Secondly, twitter has more relaxed restrictions on content, which means there is more easily to find rumor instances. In addtion, there exists an python api: "Tweepy", allowing the project comes true.
+      </p>
     </div>
   </div>
+  <br>
   <footer>
     <div style="background-color:#313030">
     
