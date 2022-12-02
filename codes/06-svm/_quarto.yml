@@ -27,9 +27,9 @@ website:
       - text: SVM
         href: https://flynnflag.quarto.pub/06-svm/svm.html
       - text: Cluster
-        file: https://flynnflag.quarto.pub/07-clustering/clustering.html
+        href: https://flynnflag.quarto.pub/07-clustering/clustering.html
       - text: ARM and Networking
-        file: svm.qmd
+        href: https://flynnflag.quarto.pub/08-arm/ARM.html
       - text: Conclusion
         file: svm.qmd
     background: "#FCFCFC"

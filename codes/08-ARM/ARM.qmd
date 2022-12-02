@@ -1,0 +1,157 @@
+---
+jupyter: python3
+
+---
+
+## Introduction
+In this tab, we try to use ARM (Association Rule Mining). This tab researches on the account descrption written by the users who sending rumors(which is the "description" column in the "cleaned_rumor_manually.csv" data set) to *** find the features tell users tending to spread rumors ***
+
+
+## Theory 
+
+ARM searches for the relationship between different things, recording when items happened together or they are correlated. There exist 3 metrics(support, confidence, lift) when we try to find the pattern: how many instance support our rule(by calculating how often the items appear together), how confident we are for patterns observed (by calculating the given probability of the rules), and how much the items are related.
+
+
+
+
+## Method
+This part will show the workflow of training the model with the method introduced before.
+<br></br>
+
+### Data Selection
+The features we use is shown below. As mentioned before, I only choose the description of the positive instances.
+```{python}
+import pandas as pd
+from nltk.tokenize import word_tokenize
+from apyori import apriori
+import networkx as nx 
+from nltk.corpus import stopwords
+import matplotlib.pyplot as plt
+# read the data
+df=pd.read_csv("../../data/01-modified-data/cleaned_supervised_data.csv")
+df=df[df["label"]==1]
+df["description"].fillna("",inplace=True)
+#replace the s(which is 's originally) and the t(which is 't originially) and re 
+df["description"]=df["description"].str.replace(" s","")
+df["description"]=df["description"].str.replace(" t","")
+df["description"]=df["description"].str.replace(" re","")
+df["description"]=df["description"].str.replace(" w","")
+# drop the stopwords
+def drop_stop(word_list):
+    return[word for word in word_list if word not in stopwords.words('english')]
+df["description"]=df["description"].apply(word_tokenize)
+df=df["description"].apply(drop_stop)
+df.head()
+```
+
+<br></br>
+
+
+### Model Building
+```{python}
+def reformat_results(results):
+
+    keep =[]
+    for i in range(0, len(results)):
+        for j in range(0, len(list(results[i]))):
+            if (j>1):
+                for k in range(0, len(list(results[i][j]))):
+                    if (len(results[i][j][k][0]) != 0):
+                        rhs = list(results[i][j][k][0])
+                        lhs = list(results[i][j][k][1])
+                        conf = float(results[i][j][k][2])
+                        lift = float(results[i][j][k][3])
+                        keep.append([rhs,lhs,supp,conf,supp*conf,lift])
+            if (j==1):
+                supp = results[i][j]
+
+    return pd.DataFrame(keep, columns =["rhs","lhs","supp","conf","supp x conf","lift"])
+
+def convert_to_network(df):
+    print(df)
+
+    #BUILD GRAPH
+    G = nx.DiGraph()  # DIRECTED
+    for row in df.iterrows():
+        # for column in df.columns:
+        lhs="_".join(row[1][0])
+        rhs="_".join(row[1][1])
+        conf=row[1][3]; #print(conf)
+        if(lhs not in G.nodes): 
+            G.add_node(lhs)
+        if(rhs not in G.nodes): 
+            G.add_node(rhs)
+
+        edge=(lhs,rhs)
+        if edge not in G.edges:
+            G.add_edge(lhs, rhs, weight=conf)
+    return G
+
+def plot_network(G):
+    #SPECIFIY X-Y POSITIONS FOR PLOTTING
+    pos=nx.random_layout(G)
+
+    #GENERATE PLOT
+    fig, ax = plt.subplots()
+    fig.set_size_inches(15, 15)
+
+    #assign colors based on attributes
+    weights_e 	= [G[u][v]['weight'] for u,v in G.edges()]
+
+    #SAMPLE CMAP FOR COLORS 
+    cmap=plt.cm.get_cmap('Blues')
+    colors_e 	= [cmap(G[u][v]['weight']*10) for u,v in G.edges()]
+
+    #PLOT
+    nx.draw(
+    G,
+    edgecolors="black",
+    edge_color=colors_e,
+    node_size=2000,
+    linewidths=2,
+    font_size=8,
+    font_color="white",
+    font_weight="bold",
+    width=weights_e,
+    with_labels=True,
+    pos=pos,
+    ax=ax
+    )
+    ax.set(title='Account Description of Users Sending rumors')
+    plt.show()
+
+
+results = list(apriori(df, min_support=0.02, min_confidence=0.2, min_length=3, max_length=2))
+pd_results = reformat_results(results)
+G = convert_to_network(pd_results)
+plot_network(G)
+
+```
+
+<br></br>
+
+
+### Final Results
+
+
+
+
+According to the results, KMEAN and hierarchy clustering returns a similar result. They sepearte the accounts which are more active with the others.For DBSAN, the best number of group calculated based on mathematical method is not what we want(2 groups). 
+
+The reason may be that just based on the information about account, the meaning of group is not exactly what we target at. Tjat may shift to something like "whether they are more likely to tweet".
+
+Unfortunately, clustering seems to fail to provide what we want.
+<br></br>
+
+## Conclusion
+
+In this tab, we have used three separate clustering model with the best hyperparameters to conduct unsupervised learning.
+
+Clustering is not a suitable candidate to meet our demand. This is mainly because the result is not what we want.
+
+To be specific, the result clustering gives may refers to the active status. This give us a hint that active status may have some connections to the groups we want, but can not directly tell us whether they are easily be affected by rumors
+
+## Reference
+[1]https://medium.com/towards-data-science/association-rule-mining-be4122fc1793 
+
+[2]Brus, P. (2021, July 29). Clustering: How to find hyperparameters using inertia. Medium. Retrieved November 13, 2022, from https://medium.com/towards-data-science/clustering-how-to-find-hyperparameters-using-inertia-b0343c6fe819 

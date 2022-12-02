@@ -5,6 +5,7 @@
 <head>
     <title>Yifan Bian 501 Project Data Gathering</title>
     <style>
+      body{margin: 0;}
       .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
       .blank{height:80px}
       .position{display:flex; flex-direction: row;justify-content:center;}
@@ -14,15 +15,11 @@
       .bayes_box2{background-color: #F8F7F5;display:flex; flex-direction: row;justify-content:center;padding-top: 20px;padding-bottom: 20px;}
       .bayes_caption2{padding: 100px;padding-right:50px;padding-left:150px;font-size: 25px}
       .bayes_pic2{width: 580px;padding: 50px;padding-right:80px;}
-      .bayes_prepare_title_box{display:flex; flex-direction: row;justify-content:center;height:380px}
-      .bayes_prepare_box{background-color:#313030;height:250px;display:flex; flex-direction:row;justify-content:space-around;}
-      .bayes_routine_box{display:flex; flex-direction: column;align-items:center;margin-top: 0px;}
-      .bayes_prepare_links_li{list-style:none;margin-bottom: 5px;}
       .bayes_conclusion_box{display:flex; flex-direction: row;justify-content:center;}
       a:visited{color:white}
       a{text-decoration: none;color:white;}
       .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
-      .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-right: 40px;background-color:	#fcfcfc;padding-top: 14px;padding-bottom: 21px;}
+      .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-left: 8px;background-color:	#fcfcfc;padding-top: 22px;padding-bottom: 21px;}        .nav_bar a:link{color:black ;}
       .nav_bar a:link{color:black ;}
       .nav_bar a:visited{color:black;}
       .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
@@ -34,41 +31,42 @@
 
 <body>
   <div class="nav_bar">
-    <a href="about.html">Home</a>
+    <a href="about.html">About</a>
     <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
     <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data">Data</a>
     <a href="intro.html">Intro</a>
-    <a href="data_gathering.html">Data Gathering</a>
-    <a href="data_cleaning.html">Data Cleaning</a>
-    <a href="exploring_data.html">Exploring Data</a>
+    <a href="./data_gathering.html">Data Gathering</a>
+    <a href="./data_cleaning.html">Data Cleaning</a>
+    <a href="./exploring_data.html">Exploring Data</a>
     <a href="./naive_bayes.html">Naive Bayes</a>
     <a href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
     <a href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
     <a href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
-    <a href="./main_page.html">ARM and Networking</a>
+    <a href="https://flynnflag.quarto.pub/08-arm/ARM.html">ARM and Networking</a>
     <a href="./main_page.html">Conclusion</a>
   </div>
-    <div class="child-top">
+  <div class="child-top">
     
-      <div class = subtitle>
-        <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
-          Naive Bayes
-        </p>
-      </div>
-
-     <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
-        <h1 style="color: #d6d3c9;text-align:right;">
-          Anly-501 Project 
-        </h1>
-        <p style="color:grey;margin-top: -15px;text-align:right;">
-          A full data science life cycle.
-        </p>
-        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right" >
-          &copy; 2022 Yifan Bian 501 Project, powered by GU domain
-         </p>
-
-      </div>
+    <div class = subtitle>
+      <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
+        Naive Bayes
+      </p>
     </div>
+
+   <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
+      <h1 style="color: #d6d3c9;text-align:right;">
+          Rumor & Susceptible User Detection
+      </h1>
+      <p style="color:grey;margin-top: -15px;text-align:right;">
+          Georgetown University DSAN Anly-501 Project 
+      </p>
+      <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right;font-style: oblique;" >
+          A full data science life cycle
+       </p>
+
+    </div>
+
+  </div>
 
 <br>
 <br>
@@ -182,94 +180,18 @@ The Naive Bayes classification algorithm is a probabilistic classifier. It is ba
 
 <hr style="width: 1200px;">
 
-<footer>
-  <div style="height:100px">
-  </div>
-  <div class="bayes_prepare_title_box">
-    <div>
-    </div>
-    <div style="width:1450px;background-color:#1C3352;">
-      <p style="color:white;font-size:40px;text-align:center;padding-top: 0px;margin-bottom: 10px;">
-        Process of Preparing Data
-      </p>
-      <div class="bayes_routine_box">
-        <p style="color:white;font-size:18px;text-align:left;padding-left:10px;padding-right:10px;width: 700px;margin-top: 0px;">
-          The data used is about the texts of tweets and the account features. Raw data sets were cleaned, merged and labeled by different files.The following picture shows how data sets and codes were used and organized before building a model.
-        </p>
-        <div style="height:10px;">
-        </div>
-        <img src="images/data_prepare_routine.jpg" style="width:1200px;margin-bottom: 0px;"> 
-        </img>
-      </div>
-    </div>
-    <div>
-    </div>
-  </div>
-  <div class = bayes_prepare_box >
+<div style="height:50px">
+</div>
 
-<!--the following div is the first list --> 
-    <div class="bayes_prepare_links_list">
-      <div style="height:100px;">
-      </div>
-      <h2 style="color:white">
-        Data
-      </h2>
-    <ul style="border-left:1px solid white;">
-      <li class="bayes_prepare_links_li">
-        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/00-raw-data">Raw Data</a>
-      </li>
-      <li class="bayes_prepare_links_li">
-        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data/01-modified-data">Modified Data</a>
-      </li>
-    </ul>
-    </div>
-<!--the following div is the second list -->    
-    <div class="bayes_prepare_links_list">
-      <div style="height:100px;">
-      </div>
-      <h2 style="color:white">
-        Code
-      </h2>
-      <ul style="border-left:1px solid white;">
-        <li class="bayes_prepare_links_li">
-          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/01-data-gathering">Gathering Data</a>
-        </li>
-        <li class="bayes_prepare_links_li">
-          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/02-data-cleaning">Cleaning Data</a>
-        </li>
-        <li class="bayes_prepare_links_li">
-          <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes/04-naive-bayes">Naive Bayes Modeling</a>
-        </li>
-      </ul>
-    </div>
-<!--the following div is the third list -->    
-    <div class="bayes_prepare_links_list">
-      <div style="height:100px;">
-      </div>
-      <h2 style="color:white">
-        Describe
-      </h2>
-      <ul style="border-left:1px solid white;">
-        <li class="bayes_prepare_links_li">
-          <a href="./data_gathering.html">Data Gathering Page</a>
-        </li>
-        <li class="bayes_prepare_links_li">
-          <a href="./data_cleaning.html">Data Cleaning Page</a>
-        </li>
-        <li class="bayes_prepare_links_li">
-          <a href="./naive_bayes.html">Naive Bayes Page</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<footer>
   <div style="background-color:#313030">
-    <div style="height:50px">
+  
+      <div style="height:50px;padding-top: 3px;margin-top: 0px;">
+        <p style="color:	#8d8d8d; margin-left:55px"> &copy; 2022 Yifan Bian 501 Project, powered by GU domain </p>
+      </div>
     </div>
-    <hr style="width: 1400px;color:white">
-    <div style="height:50px">
-    </div>
-  </div>
-</footer>
+  </footer>
+
 
 
 </body>

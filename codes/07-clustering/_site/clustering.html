@@ -126,9 +126,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
     
 
-    <title>Yifan Bian 501 Project Data Gathering</title>
+    <title>Cluster_header</title>
     <style>
-      .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between;border-top: grey 3px solid;} 
+      .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');padding-top:10px;padding-right: 18px;height: 240px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between;border-top: grey 3px solid;} 
       .blank{height:80px}
       .position{display:flex; flex-direction: row;justify-content:center;}
       .bayes_box1{display:flex; flex-direction: row;justify-content:center;}
@@ -156,20 +156,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     
     <div class="subtitle">
       <div style="height:60px"></div>
-      <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
-        Clustering
+      <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;margin-top: -13px;">
+        Cluster
       </p>
     </div>
 
    <div class="last-word" style="padding-right:80px ;padding-top: 10px;">
-      <h1 style="color: #d6d3c9;text-align:right;">
-        Anly-501 Project 
+      <h1 style="padding-left: 5px;color: #d6d3c9;text-align:right;font-size: 32px;font-family: 'Times New Roman', Times, serif;font-weight: bold;">
+        Rumor &amp; Susceptible User Detection
       </h1>
-      <p style="color:grey;margin-top: -15px;text-align:right;">
-        A full data science life cycle.
+      <p style="color:grey;margin-top: -15px;text-align:right;font-size: 15px;margin-bottom: 10px;">
+        Georgetown University DSAN Anly-501 Project 
       </p>
-      <p style="color:whitesmoke; font-weight:200; font-size: 16px;text-align:right">
-        © 2022 Yifan Bian 501 Project, powered by GU domain
+      <p style="color:whitesmoke; font-weight:200; font-size: 16px;text-align:right;font-style: oblique;margin-top: 0px;">
+        A full data science life cycle
        </p>
 
     </div>
@@ -200,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://gpa4.georgetown.domains/501-project-website/main_page.html">Home</a>
+    <a class="nav-link" href="https://gpa4.georgetown.domains/501-project-website/about.html">About</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
@@ -233,10 +233,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./clustering.html" aria-current="page">ARM and Networking</a>
+    <a class="nav-link" href="https://flynnflag.quarto.pub/07-clustering/clustering.html">ARM and Networking</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./clustering.html">Conclusion</a>
+    <a class="nav-link active" href="./clustering.html" aria-current="page">Conclusion</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>df[df[<span class="st">"friends_count"</span>]<span class="op">&lt;</span><span class="dv">5</span>]</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="11">
 
 <div>
 
@@ -398,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"The value of K"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Within cluster sum of squares(WCSS)"</span>,fontsize<span class="op">=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>Text(0, 0.5, 'Within cluster sum of squares(WCSS)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -552,7 +552,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>sns.scatterplot(x<span class="op">=</span><span class="st">"friends_count"</span>,y<span class="op">=</span><span class="st">"tweet_num"</span>,hue<span class="op">=</span><span class="st">"kmean"</span>,data<span class="op">=</span>df)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>a.set_title(<span class="st">"Kmean"</span>,fontsize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>Text(0.5, 1.0, 'Kmean')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -567,7 +567,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>sns.scatterplot(x<span class="op">=</span><span class="st">"friends_count"</span>,y<span class="op">=</span><span class="st">"tweet_num"</span>,hue<span class="op">=</span><span class="st">"DBSAN"</span>,data<span class="op">=</span>df)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>a.set_title(<span class="st">"DBSAN"</span>,fontsize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>Text(0.5, 1.0, 'DBSAN')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -582,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>sns.scatterplot(x<span class="op">=</span><span class="st">"friends_count"</span>,y<span class="op">=</span><span class="st">"tweet_num"</span>,hue<span class="op">=</span><span class="st">"hierarchy"</span>,data<span class="op">=</span>df)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>a.set_title(<span class="st">"Hierarchy Clustering"</span>,fontsize<span class="op">=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>Text(0.5, 1.0, 'Hierarchy Clustering')</code></pre>
 </div>
 <div class="cell-output cell-output-display">

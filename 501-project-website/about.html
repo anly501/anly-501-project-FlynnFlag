@@ -6,6 +6,7 @@
 
     <!-- point to css stylesheet -->
     <style>
+        body{margin: 0;}
         .nav_bar_bottom{height: 30px;display:flex; flex-direction: row;justify-content:flex-end;padding-right: 40px;background-color:#041E42;padding-top: 10px;}
         .nav_bar_bottom a:link{color:white ;}
         .nav_bar_bottom a:visited{color:white;}
@@ -15,11 +16,32 @@
         .self{display:flex; flex-direction: row;justify-content:center;height: 350px;}
         .about_details{display:flex; flex-direction: row;justify-content:center;}
         .about_academic{display:flex; flex-direction: column;} 
+        .skill_box{display:flex; flex-direction: column;align-items: center;}
+        .about_skills{display:flex; flex-direction: column;}
         .mid_part{padding-top: 80px;padding-bottom: 80px;background-color: #f9f9f9;}
+        .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-left: 8px;background-color:	#fcfcfc;padding-top: 22px;padding-bottom: 21px;}        .nav_bar a:link{color:black ;}
+        .nav_bar a:link{color:black ;}
+        .nav_bar a:visited{color:black;}
+        .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
    </style>
 </head>
 
 <body>
+    <div class="nav_bar">
+        <a href="about.html">About</a>
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data">Data</a>
+        <a href="intro.html">Intro</a>
+        <a href="data_gathering.html">Data Gathering</a>
+        <a href="data_cleaning.html">Data Cleaning</a>
+        <a href="exploring_data.html">Exploring Data</a>
+        <a href="./naive_bayes.html">Naive Bayes</a>
+        <a href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
+        <a href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
+        <a href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
+        <a href="https://flynnflag.quarto.pub/08-arm/ARM.html">ARM and Networking</a>
+        <a href="./main_page.html">Conclusion</a>
+      </div>
     <div class="nav_bar_top">
         <p style="margin-left: 20px;font-size: 60px;font-weight:bold;margin-top: 0px;color:white;margin-bottom: 0px;font-style: oblique;">R&D Repository</p>
         <p style="margin-left: 20px;margin-top:0;font-size: 15px;color: #f9f9f9;font-weight:bold;font-style: oblique;font-family:Sans-serif;">Yifan Bian's Projects at Georgetown University</p>
@@ -27,7 +49,7 @@
     <div class="nav_bar_bottom">
         <a href="intro.html">Data Science</a>
         <a href="new_about.html">Prob & Stat</a>
-        <a href="new_about.html">Optimization</a>
+        <a href="./ANLY 561 Final Presentation draft.pdf">Optimization</a>
     </div>
 
     <div class="mid_part">
@@ -39,6 +61,7 @@
                 <p style="color: #041E42;font-size: 50px;font-weight: bold;margin-top: 10px; margin-bottom: 10px;">Yifan Bian</p>
                 <p style="margin-top: 0px;font-size: 18px;">Graduate Student at Georgetown University</p>  
                 <p style="margin-top: 0px;font-size: 18px;">M.S. in Data Science and Analytics, B.A. in Journalism, B.E. in Finance</p>
+                <p style="margin-top: 0px;font-size: 18px;">netid:yb216 Email:yb216@georgetown.edu</p>
                 <div class="contact">
                     <a href="https://www.linkedin.com/in/yifan-bian-flynn/"> <img src="images/linkedin.png"></a>
                     <a href="https://github.com/FlynnFlag"> <img src="images/github.png"></a>
@@ -62,12 +85,21 @@
                 <a style="font-size: 18px;margin-bottom: 5px;">Visual Recognition</a>
                 <a style="font-size: 18px;margin-bottom: 5px;">Machine Learning</a>
                 <a style="font-size: 18px;margin-bottom: 5px;">Computational Linguistics</a>
-
             </div>
         </div>
+        <br>
+        <br>
+        <div class="skill_box">
+            <div class="about_skills" style="border-top:1px solid  #041E42;width: 550px;width: 880px;">
+                <a style="color: #041E42;font-size: 27px;font-weight:bold;font-style: oblique;margin-bottom: 15px;margin-top: 25px;"> Skills</a>
+                <a style="font-size: 18px;margin-bottom: 5px;">Programming: Python, R, Stata, HTML/CSS, SQL </a>
+                <a style="font-size: 18px;margin-bottom: 5px;">Tools: Tableau, Git, APIs, Latex, Excel</a>
+                <a style="font-size: 18px;margin-bottom: 5px;">Analytical Skills: Machine learning, Experiment Design(A/B Testing), Causal Inference, Web Scraping, Visualization</a>
+            </div>
+         </div>
     </div>
 <footer style="background-color:#696c6b; padding-top: 10px;padding-bottom: 5px;">
-    <p style="color:white; margin-left: 60px;"> Yifan's R&D repository is powered by GU domain </p>
+    <p style="color:white; margin-left: 60px;"> Yifan's R&D Repository is powered by GU domain </p>
 </footer>
 </body>
 

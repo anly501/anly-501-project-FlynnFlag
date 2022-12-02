@@ -27,11 +27,11 @@ website:
       - text: SVM
         href: https://flynnflag.quarto.pub/06-svm/svm.html
       - text: Cluster
-        href: https://flynnflag.quarto.pub/07-clustering/clustering.html
+        file: https://flynnflag.quarto.pub/07-clustering/clustering.html
       - text: ARM and Networking
-        href: https://flynnflag.quarto.pub/07-clustering/clustering.html
+        file: https://flynnflag.quarto.pub/08-arm/ARM.html
       - text: Conclusion
-        file: clustering.qmd
+        file: https://flynnflag.quarto.pub/08-arm/ARM.html
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 
@@ -41,7 +41,7 @@ website:
 
 format:
   html:
-    include-in-header: clustering_header.html
+    include-in-header: ARM_header.html
     code-fold: True
     theme: 
       - cosmo

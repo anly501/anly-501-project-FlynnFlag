@@ -148,8 +148,8 @@ def confusion_plot(y_data,y_pred):
     #plot the heatmap
     fig=sns.heatmap(cf, annot=labels, fmt="", cmap='Blues')
     plt.title("Confusion Matrix of Texts - Decision Tree",fontsize=18)
-    fig.set_xticklabels(["Easily affected","Not easily affected"],fontsize=13)
-    fig.set_yticklabels(["Easily affected","Not easily affected"],fontsize=13)
+    fig.set_xticklabels(["Truth","Rumor"],fontsize=13)
+    fig.set_yticklabels(["Truth","Rumor"],fontsize=13)
     fig.set_xlabel("Predicted Labels",fontsize=14)
     fig.set_ylabel("True Labels",fontsize=14)
     plt.show()
