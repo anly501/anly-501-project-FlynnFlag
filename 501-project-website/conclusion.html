@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Yifan Bian 501 Project Conclusion</title>
+    <style>
+        body{margin: 0;}
+        .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-left: 8px;background-color:	#fcfcfc;padding-top: 22px;padding-bottom: 21px;}        .nav_bar a:link{color:black ;}
+        .nav_bar a:visited{color:black;}
+        .nav_bar a{text-decoration: none;margin-left: 21.5px;font-size: 18px;font-weight:normal;}
+        .child-top { background-image: url('https://www.georgetown.edu/wp-content/uploads/2019/09/20150324-Campus_0006-2-2000x1125-c--dark-default.jpg');height: 230px;margin: 0%;display: flex;flex-direction: row;justify-content:space-between} 
+        .blank{height:80px}
+        .position{display:flex; flex-direction: row;justify-content:center;}
+        .explore_box{display:flex; flex-direction: row;justify-content:center;border-style:solid;border-width:1px;width: 1250px;border-color: grey;}
+        .explore_caption{background-color: #F6F6FA;}
+        .explore_cap_title{padding-left: 20px;margin-bottom:0px;font-size: 40px;font-weight: bold;color: #003366;}
+        .explore_words{margin:0px;padding: 0px;font-size: 20px;padding-right: 30px;padding-left: 20px;text-align: left;}
+        .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
+        .explore_footer{background-color: #F0F0F0;height:300px;display:flex;flex-direction: row;justify-content:center;}
+        .explore_footer_title{font-weight: bold;padding: 0px;margin: 0px;padding-top: 5px;}
+        .explore_footer_text{font-weight: bold;padding: 0px;margin: 0px;}
+        a:visited{color:black}
+        a{text-decoration: none;font-weight:bold;font-size: 20px;color: #003366;}
+        .con_title{font-size: 40px; font-weight:bold;margin-top:30px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;color: #041E42;}
+        .con_text{padding-top: 20px;padding-right:80px;padding-left:80px;font-size: 20px;margin-top: 0px;margin-bottom: 0px;color:#4a4a4a;}
+        *{
+        font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="nav_bar">
+        <a href="about.html">About</a>
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes">Code</a>
+        <a href="https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data">Data</a>
+        <a href="intro.html">Intro</a>
+        <a href="./data_gathering.html">Data Gathering</a>
+        <a href="./data_cleaning.html">Data Cleaning</a>
+        <a href="./exploring_data.html">Exploring Data</a>
+        <a href="./naive_bayes.html">Naive Bayes</a>
+        <a href="https://flynnflag.quarto.pub/decision_tree/decision_tree.html">Decision Tree</a>
+        <a href="https://flynnflag.quarto.pub/06-svm/svm.html">SVM</a>
+        <a href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
+        <a href="https://flynnflag.quarto.pub/08-arm/ARM.html">ARM and Networking</a>
+        <a href="./conclusion.html">Conclusion</a>
+      </div>
+    <div class="child-top">
+    
+      <div class = subtitle>
+        <p style="font-size:70px ;color:#d6d3c9;padding-left: 80px;border-right: 6px solid #d6d3c9 ;padding-right: 30px;">
+          Conclusion
+        </p>
+      </div>
+
+     <div class="last-word" style="padding-right:80px ;padding-top: 30px;">
+        <h1 style="color: #d6d3c9;text-align:right;">
+            Rumor & Susceptible User Detection
+        </h1>
+        <p style="color:grey;margin-top: -15px;text-align:right;">
+            Georgetown University DSAN Anly-501 Project 
+        </p>
+        <p style = "color:whitesmoke; font-weight:200; font-size: 16px;text-align:right;font-style: oblique;" >
+            A full data science life cycle
+         </p>
+
+      </div>
+
+    </div>
+    <br>
+
+    <div style="display:flex; flex-direction:column;align-items: center;"> 
+      <div style="width:1150px;">
+        <p class="con_title">
+          Conclusion
+        </p> 
+        <div>
+          <p class="con_text">
+          According to the models built,
+          </p>
+        </div>
+        <br>
+        <p class="con_title">
+          Deficiency
+        </p> 
+        <div>
+          <p class="con_text">
+            As people always say: data determines the quality of the model. The biggest deficiency comes from the original data used for building rumor detection.
+          </p>
+          <p class="con_text">
+            Firstly, both the volume and the occurrence time of data may damage the generalization of the model training. Since the positive instances can only be collected manually, there are only 100 positive instances. And, according to the EDA result, these instances' topics are relevant to the hotspots that happened in 2022.
+          </p>
+          <p class="con_text">
+            Secondly, the negative instances were gained by sampling the tweets from several institutions. Duplicates inevitably exist in the feature “account description”. When this feature was chosen to build a model, a biased negative judgment will be produced especially for the probability models.
+          </p>
+          </div>
+
+      </div> 
+    </div>
+
+  
+
+<div class="blank">
+</div>
+
+<footer>
+<div style="background-color:#313030">
+
+    <div style="height:50px;padding-top: 3px;margin-top: 0px;">
+      <p style="color:	#8d8d8d; margin-left:55px"> &copy; 2022 Yifan Bian 501 Project, powered by GU domain </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
