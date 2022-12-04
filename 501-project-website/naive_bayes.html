@@ -18,6 +18,8 @@
       .bayes_conclusion_box{display:flex; flex-direction: row;justify-content:center;}
       a:visited{color:white}
       a{text-decoration: none;color:white;}
+      .bayes_title_box a{text-decoration: none;color:black;}
+      .bayes_title_box a:visited{color: black;}
       .data_source{font-size: 16px;padding-left: 20px;text-align: right;padding-right: 40px;}
       .nav_bar{border-bottom: gray solid 3px;display:flex; flex-direction: row;justify-content:flex-start;padding-left: 8px;background-color:	#fcfcfc;padding-top: 22px;padding-bottom: 21px;}        .nav_bar a:link{color:black ;}
       .nav_bar a:link{color:black ;}
@@ -71,10 +73,17 @@
 
   </div>
 
-<br>
-<br>
+  <div style="height:70px">
+  </div>
+  
 <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;">
-  Method
+  Introduction
+</p>
+<p style="padding: 20px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;">
+In this page, Naive Bayes will be used to build Rumor Detection. However, different features will be selected to build this model by python and R respectively. For python, rumor text,	friends count, followers count, retweet count,	favorite count and account description are used. For R, only quantitative features including friends count, followers count, retweet count and	favorite count are considered.
+</p>
+<p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;margin-bottom: 0px;">
+  Theory
 </p>
 <p style="padding: 20px;padding-right:80px;padding-left:80px;font-size: 25px;margin-top: 0px;">
 The Naive Bayes classification algorithm is a probabilistic classifier. It is based on probability models that incorporate strong independence assumptions. Text classification is one of the strongest characteristics of the Naive Bayes classifier. 
@@ -83,29 +92,26 @@ The Naive Bayes classification algorithm is a probabilistic classifier. It is ba
 
 <!--the following div is the first part(model built by python) -->
 <div class="bayes_title_box">
-  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
-    Modeled by python
-  </p>
   <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin-bottom: 0px;">
-    Rumor Detection Based on Tweet Text
+    Model Built by Python
   </p>
-  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;">
-    The model is built with tweet texts. A naive bayes model was built after the texts were vectorized to tell rumors from truth.
-  </p>
+  <a style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;" href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/codes/04-naive-bayes/naive_bayes_python.ipynb">
+    Link to Codes
+  </a>
 </div>
 <!--the following div is the first box -->
 <div class="bayes_box1">
 <img src="images/learning_curve_text_naive_bayes.png" class="bayes_pic1">
 </img>
 <p class = bayes_caption1>
-  According to the learning curve, the performance on both training data and cross validation data continuously increase. As the number of examples increase, the score of training and cross validation data reaches a high position, meaning that the model is neither overfitting, nor underfitting.
+  According to the learning curve, the performance of training data and that of cross validation data become close. As the number of examples increase, the score of training and cross validation data reaches a high position, meaning that the model is neither overfitting, nor underfitting and performs well.
 </p>
 </div>
 <!--the following div is the second box -->
 <div class="bayes_box2">
 
     <p class = bayes_caption2>
-      According to the precision recall curve, it is easier for model to detect truth, while it is relatively hard to tell rumor from truth. This means the model is not applicable in practical use.
+    The cure is near upper right, which means the performance of this model is acceptable. The shape of the curve indicates that the model can both detect rumors and truth.  
     </p>
   <img src="images/PR_curve_naive_bayes.png" class="bayes_pic2">
   </img>
@@ -118,7 +124,7 @@ The Naive Bayes classification algorithm is a probabilistic classifier. It is ba
   <img src="images/confusion_matirx_text_naive_bayes.png" class="bayes_pic1">
   </img>
   <p class = bayes_caption1>
-    According to the confusion matrix, the precentage of true positive is much higher than other three statistics, this may cause by the unbalanced data. The negative sample is too small. We may need more samples.
+    According to the confusion matrix, both ture postive rate and true negative rate is higher. The false positive rate is higher than false negative rate. Since the purpose is detect rumor, the harm of wrongly classify tweets as rumors is less than that of wrongly classify tweets as truth. So this result is available.
  </p>
 </div>
 
@@ -127,29 +133,26 @@ The Naive Bayes classification algorithm is a probabilistic classifier. It is ba
 
 <!--the following div is the first part(model built by R) -->
 <div class="bayes_title_box">
-  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px">
-    Modeled by R
-  </p>
   <p style="font-size: 50px; font-weight:bold;margin-top:10px;padding-top: 0px;padding-left:80px;margin:0px">
-    Rumor Detection Based on Tweet Performance and Account Character
+    Model Built by R
   </p>
-  <p style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;">
-    The model is built with tweets performance and account features. A naive bayes model was built by these continuous variables.
-  </p>
+  <a style="font-size: 18px; font-weight:bold;margin-bottom: 0px;padding-left:80px;width: 1400px;margin-top: 0px;" href="https://github.com/anly501/anly-501-project-FlynnFlag/blob/main/codes/04-naive-bayes/naive_bayes_r.Rmd">
+    Link to Codes
+  </a>
 </div>
 <!--the following div is the first box -->
 <div class="bayes_box1">
   <img src="images/correlation_between_features.png" class="bayes_pic1">
   </img>
   <p class = bayes_caption1>
-    According to the correlation graph, friends count and favourite count is related to each other, which is consisitent with intuition.
+    According to the correlation graph, friends count, retweet count and favourite count are related to each other
   </p>
   </div>
   <!--the following div is the second box -->
   <div class="bayes_box2">
   
       <p class = bayes_caption2>
-        According to the confusion matrix, this model performs better than the previous one. The number of true positive is high and the number of false negative is 0,meaning it has low error rate.
+        According to the confusion matrix, this model can perfectly detect truth, while cannot always successfully detect rumors.
       </p>
     <img src="images/confusion_matirx_Tweet_Account_naive_bayes.png" class="bayes_pic2">
     </img>
@@ -172,7 +175,7 @@ The Naive Bayes classification algorithm is a probabilistic classifier. It is ba
       Conclusion
     </h1>
     <p style="font-size: 25px;margin-bottom: 0px;margin-top: 0px;">
-      The model based on account features and tweet performance is better than the model based on tweet text, this means that to detect whether a sentence is a rumor, it is hard to judge according to its content. However, it is more effective to make a decision based on the account.
+      The model based on the account information and the rumor texts are better (the one built by python). Judging from several plots, this model based on naive bayes is acceptable, we can apply it.
     </p>
   </div>
   <div>

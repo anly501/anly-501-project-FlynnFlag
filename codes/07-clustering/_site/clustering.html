@@ -233,10 +233,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="nav-link" href="https://flynnflag.quarto.pub/07-clustering/clustering.html">Cluster</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://flynnflag.quarto.pub/07-clustering/clustering.html">ARM and Networking</a>
+    <a class="nav-link" href="https://flynnflag.quarto.pub/08-arm/ARM.html">ARM and Networking</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./clustering.html" aria-current="page">Conclusion</a>
+    <a class="nav-link" href="https://gpa4.georgetown.domains/501-project-website/conclusion.html">Conclusion</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -274,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this tab, we try to use clustering to <strong><em>group people who are more likely to be affected by rumors and people who are not likely to be</em></strong>. The data set used is “cleaned_followers.csv”.</p>
+<p>In this tab, we try to use clustering to build <strong><em>Susceptible User Detection</em></strong>. The data set used is “cleaned_followers.csv”.</p>
 <p>Since we try to use clustering, we drop all categorical columns. Additionally, this is a unsupervised data, so we drop the label column. Besides, regularization will lead to a better result, so we also regularize the features. The user_id is taken into consideration because it reflect when the account is created.</p>
 </section>
 <section id="theory" class="level2">
@@ -373,6 +373,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user_id</td>
+<td style="text-align: left;">the id of users</td>
+</tr>
+<tr class="even">
+<td>followers_count</td>
+<td style="text-align: left;">the number of followers this account currently has</td>
+</tr>
+<tr class="odd">
+<td>friends_count</td>
+<td style="text-align: left;">the number of users this account is following</td>
+</tr>
+<tr class="even">
+<td>listed_count</td>
+<td style="text-align: left;">the number of public lists that this user is a member of</td>
+</tr>
+<tr class="odd">
+<td>favourites_count</td>
+<td style="text-align: left;">the number of Tweets this user has liked in the account’s lifetime</td>
+</tr>
+<tr class="even">
+<td>tweet_num</td>
+<td style="text-align: left;">the number of Tweets (including retweets) issued by the user</td>
+</tr>
+</tbody>
+</table>
+<center>
+<em>(The names and meanings of features)</em>
+</center>
 <p><br><br></p>
 </section>
 <section id="hyperparameter-tuning" class="level3">
@@ -470,7 +511,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>OPTIMAL PARAMETER = 2</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="clustering_files/figure-html/cell-4-output-2.png" width="609" height="435"></p>
+<p><img src="clustering_files/figure-html/cell-4-output-2.png" width="601" height="435"></p>
 </div>
 </div>
 <p>When applying silhouette method, the best number of groups is 2.</p>

@@ -27,11 +27,11 @@ website:
       - text: SVM
         href: https://flynnflag.quarto.pub/06-svm/svm.html
       - text: Cluster
-        file: https://flynnflag.quarto.pub/07-clustering/clustering.html
+        href: https://flynnflag.quarto.pub/07-clustering/clustering.html
       - text: ARM and Networking
-        file: https://flynnflag.quarto.pub/08-arm/ARM.html
+        href: https://flynnflag.quarto.pub/08-arm/ARM.html
       - text: Conclusion
-        file: https://flynnflag.quarto.pub/08-arm/ARM.html
+        href: https://gpa4.georgetown.domains/501-project-website/conclusion.html
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 

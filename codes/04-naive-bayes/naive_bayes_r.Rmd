@@ -12,8 +12,15 @@ library("e1071")
 library("caret")
 library("caTools")
 data=read_csv("C:/Windows/System32/anly-501-project-FlynnFlag/data/01-modified-data/supervised_data.csv")
-data<- data%>%
-  select(friends_count,followers_count,retweet_count,favorite_count,label)
+positive<- data%>%
+  select(friends_count,followers_count,retweet_count,favorite_count,label)%>%
+  filter(label=="rumor")
+negative<- data%>%
+  select(friends_count,followers_count,retweet_count,favorite_count,label)%>%
+  filter(label=="truth")%>%
+  sample_n(100)
+data<-rbind(positive,negative)
+
 
 # Splitting data into train and test data
 split <- sample.split(data$label, SplitRatio = 0.7)

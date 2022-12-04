@@ -4,9 +4,13 @@ jupyter: python3
 ---
 
 
-## Method 
+## Introduction
 
-In this tab, a classification method called ***SVM(Supported Vector Machine)*** is used. This method "draw a bound" at the middle of the distance between the closest two samples. 
+In this tab, we tried to build ***Rumor Detection*** A classification method called ***SVM(Supported Vector Machine)*** will be used. The data set included is "cleaned_supervised_data.csv"
+
+## Theroy 
+
+SVM "draw a bound" at the middle of the distance between the closest two samples. 
 <br></br>
 ![](svm.jpeg)
 <center>*(Example how svm functions)*</center>
@@ -20,17 +24,11 @@ Beside, by appling "kernel trick", SVM can also draw non-linear lines to seperat
 
 Advantages of this method is: SVM performs reasonably well when the difference between classes is huge.
 
-With SVM, we are going to solve the following application
 
----
+## Method
+This part will show the workflow of training the optimal models with SVM.
 
-<center>**Rumor Detection**</center>
-
---- 
-
-<br></br>
-
-## Class Distribution
+### Class Distribution
 ```{python}
 # import libraries
 import numpy as np
@@ -65,7 +63,7 @@ In this model, we will try to use sample a equal number of truth from the rows w
 <br></br>
 
 
-## Baseline Model for Comparsion
+### Baseline Model for Comparsion
 ```{python}
 # transform the label 
 y=y.str.replace("rumor","1")
@@ -86,7 +84,7 @@ random_classifier(y)
 <br></br>
 What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.
 
-## Feature Selection
+### Feature Selection
 ```{python}
 #sample a subset of negative samples
 a=df[df["label"]=="truth"].sample(100)
@@ -109,7 +107,7 @@ x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
 This model try to use texts to classify, so our features are texts transformed by "CountVectorizer"
 <br></br>
 
-## Model tuning
+### Model tuning
 ```{python}
 #find the best hyperparametres with GridSearchCV library
 parameter=[

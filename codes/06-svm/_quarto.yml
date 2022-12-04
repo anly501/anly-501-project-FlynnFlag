@@ -6,8 +6,8 @@ website:
   navbar:
     search: false
     left:
-      - href: https://gpa4.georgetown.domains/501-project-website/main_page.html
-        text: Home
+      - href: https://gpa4.georgetown.domains/501-project-website/about.html
+        text: About
       - href: https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/codes
         text: Code
       - href: https://github.com/anly501/anly-501-project-FlynnFlag/tree/main/data
@@ -31,7 +31,7 @@ website:
       - text: ARM and Networking
         href: https://flynnflag.quarto.pub/08-arm/ARM.html
       - text: Conclusion
-        file: svm.qmd
+        href: https://gpa4.georgetown.domains/501-project-website/conclusion.html
     background: "#FCFCFC"
     foreground: "#000000"
   page-footer: 
