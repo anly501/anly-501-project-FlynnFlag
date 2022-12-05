@@ -3,13 +3,16 @@ jupyter: python3
 
 ---
 
+## Introduction
 
-## Method 
+In this tab, a classification method called ***Decision Tree*** is used to build ***Susceptible User Detection***. We will use "cleaned_followers.csv".
 
-In this tab, a classification method called ***Decision Tree*** is used. This method continuouslly asks "whether or not questions" to the input so that it can gradually divides it into different parts.
+
+## Theory 
+
+Decision Tree continuouslly asks "whether or not questions" to the input so that it can gradually divides it into different parts.
 <br></br>
 ![](tree.png)
-<center>*(Example of the process of decision tree)*  [`reference`](https://www.ibm.com/topics/decision-trees)</center>
 <br></br>
 But how to decide what to ask? The trick here is to use mathematical formulas to quantify one of the following metrics to find the question.
 
@@ -19,18 +22,14 @@ But how to decide what to ask? The trick here is to use mathematical formulas to
 
 By using this method, we can easily find how important an attribute is, and understand what makes our research target so different.
 
-Now we are going to apply this method to our data to achieve one of our goals:  
-
-
----
-
-<center>**Distinguish users who are more likely to be influenced by rumor with other users.**</center>
-
---- 
 
 <br></br>
 
-## Class Distribution
+## Method
+
+This part will show the workflow of training the optimal models with SVM.
+
+### Class Distribution
 ```{python}
 # import libraries
 import numpy as np
@@ -60,7 +59,7 @@ The count of two classes are the same, 350 for each. This is dsigned when gather
 
 <br></br>
 
-## Baseline Model for Comparsion
+### Baseline Model for Comparsion
 ```{python}
 #define a baseline model which random assign labels
 def random_classifier(y_data):
@@ -77,7 +76,7 @@ random_classifier(df.label)
 <br></br>
 What a baseline model here did is guess the class. And we can see that every metric is around 50%. So if a model perform than this baseline, than we can say it do make some sense.
 
-## Data Selection
+### Data Selection
 ```{python}
 # id reflect the time account exits,we normalized it 
 df["user_id"]=(df.user_id-df.user_id.mean())/df.user_id.std() 
@@ -86,7 +85,7 @@ df.drop(columns=["screen_name"],axis=1,inplace=True)
 #
 X=df.drop(columns=["label"],axis=1)
 y=df["label"]
-x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
+x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
 ```
 
 | Feature          | Meaning                                                             | 
@@ -105,7 +104,7 @@ x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
 8 features was selected to train the model. These features are all attributes that are allowed to get and reflect the character of accounts. With these attributes, we have the biggest possibility to find the differences. Note that "user_id" is also selected because it reflect how long an account was created. The bigger an user id is, the newer the account is.
 <br></br>
 
-## Model tuning
+### Model tuning
 ```{python}
 # try different numbers of layers to find the best one
 test_results=[]
@@ -189,3 +188,7 @@ With 4 layers, the leaf node seems quite reasonable.The model turns out to be qu
 The model is not bad. It can correctly distinguish most samples and the accuracy is about 70%.  However, since our target is to find users easily be affected by rumors. A false positive is more acceptable than a false negative, which means it is more acceptable to warn a person not easily be affected than fail to notify a person who may trust a rumor and pass it along! So we can consider to apply this model.
 
 Decision tree is unstable, so we can still use bagging(random forest), boosting(xgboost, GDBT, lightBGM, etc) to fit the data in the future.
+
+## Reference
+
+[1]What is a decision tree. IBM. (n.d.). Retrieved December 4, 2022, from https://www.ibm.com/topics/decision-trees 
